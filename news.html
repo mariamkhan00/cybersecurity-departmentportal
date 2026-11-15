@@ -1,15 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>News & Events - QUEST Cyber Security</title>
+
+<title>News & Events - QUEST Cyber Security Department</title>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
 <style>
-/* === THEME COLORS === */
-:root { 
-    --primary: #0B72B9; 
+
+/* =====================================
+   1. SHARED THEME COLORS - SAME AS INDEX
+===================================== */
+
+:root {
+    --primary: #0B72B9;
     --nav-bg: #ffffff;
     --nav-text: #333333;
     --body-bg: #f4f7fb;
@@ -31,281 +39,1493 @@ body.dark-mode {
     --footer-text: #e2e8f0;
 }
 
-body { 
-    font-family: 'Segoe UI', sans-serif; 
-    background-color: var(--body-bg); 
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    background: var(--body-bg);
     color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* === NAVBAR === */
-.navbar { 
-    background: var(--nav-bg) !important; 
-    padding: 10px 0; 
-    transition: 0.3s; 
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-}
-body.dark-mode .navbar { box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
 
-.navbar-brand { 
-    color: var(--nav-text) !important; 
-    font-weight: 700; 
-    display: flex; 
-    align-items: center; 
-    gap: 10px; 
-}
-.university-logo { height: 45px; background: white; border-radius: 50%; padding: 2px; }
+/* =====================================
+   2. TOP HEADER - SAME AS INDEX
+===================================== */
 
-.nav-link { 
-    color: var(--nav-text) !important; 
-    font-weight: 500; 
-    padding: 8px 15px !important; 
-    font-size: 1rem; 
-}
-.nav-link:hover { color: var(--primary) !important; }
-
-.dropdown-menu { background-color: var(--nav-bg); border: 1px solid var(--card-border); }
-.dropdown-item { color: var(--nav-text) !important; }
-.dropdown-item:hover { background-color: var(--primary) !important; color: white !important; }
-
-/* Theme Toggle Button */
-.theme-toggle-btn { 
-    background: transparent; 
-    border: 1px solid var(--card-border); 
-    color: var(--nav-text); 
-    border-radius: 50%; 
-    width: 40px; 
-    height: 40px; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    cursor: pointer; 
-    transition: 0.3s; 
-    margin-left: 15px; 
-}
-.theme-toggle-btn:hover { background: var(--primary); color: white; }
-
-/* === ARTICLE STYLES === */
-.article-header { 
-    background: var(--card-bg); 
-    padding: 40px 20px; 
-    border-bottom: 1px solid var(--card-border); 
-    margin-bottom: 30px; 
+.top-header {
+    background: var(--nav-bg);
+    padding: 12px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     transition: 0.3s;
 }
-.article-title { color: var(--primary); font-size: 2.5rem; font-weight: 700; margin-bottom: 10px; }
-.article-date { color: #888; font-size: 1rem; }
 
-.article-content { 
-    background: var(--card-bg); 
-    padding: 40px; 
-    border-radius: 10px; 
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.university-logo {
+    width: 53px;
+    height: 53px;
+    object-fit: contain;
+    background: white;
+    border-radius: 50%;
+    padding: 3px;
+}
+
+.brand-name {
+    color: var(--nav-text);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.brand-subtitle {
+    color: #888;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.menu-toggle {
+    width: 43px;
+    height: 43px;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--nav-text);
+    font-size: 19px;
+    cursor: pointer;
     transition: 0.3s;
+}
+
+.menu-toggle:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.theme-toggle-btn {
+    background: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--nav-text);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.theme-toggle-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+
+/* =====================================
+   3. SIDEBAR - SAME AS INDEX
+===================================== */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -290px;
+    width: 280px;
+    height: 100vh;
+    background: var(--nav-bg);
+    z-index: 3000;
+    padding: 22px 18px;
+    overflow-y: auto;
+    box-shadow: 5px 0 25px rgba(0,0,0,0.15);
+    transition: left 0.3s ease;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.sidebar-heading {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--primary);
+}
+
+.sidebar-close {
+    border: none;
+    background: transparent;
+    color: var(--nav-text);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 14px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    color: var(--nav-text);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.sidebar-link i {
+    width: 22px;
+    text-align: center;
+    color: var(--primary);
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    background: rgba(11,114,185,0.12);
+    color: var(--primary);
+}
+
+.sidebar-link.dropdown-toggle::after {
+    margin-left: auto;
+}
+
+.submenu {
+    padding-left: 30px;
+    margin-bottom: 8px;
+}
+
+.submenu a {
+    display: block;
+    padding: 10px 12px;
+    color: var(--nav-text);
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 7px;
+}
+
+.submenu a:hover,
+.submenu a.active {
+    background: rgba(11,114,185,0.12);
+    color: var(--primary);
+}
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 2500;
+    display: none;
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
+
+/* =====================================
+   4. NEWS PAGE INTRODUCTION
+===================================== */
+
+.news-banner {
+    background:
+        linear-gradient(rgba(10,25,41,0.82), rgba(10,25,41,0.82)),
+        url('https://i.ibb.co/b5BmC0BQ/telecom-building.jpg')
+        center/cover no-repeat;
+
+    padding: 65px 20px;
+    text-align: center;
+    color: white;
+}
+
+.news-banner-label {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.5);
+    padding: 7px 18px;
+    border-radius: 30px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.news-banner h1 {
+    font-size: clamp(30px, 5vw, 45px);
+    font-weight: 750;
+    margin-bottom: 15px;
+}
+
+.news-banner p {
+    max-width: 700px;
+    margin: auto;
+    font-size: 16px;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+
+/* =====================================
+   5. NEWS CONTENT
+===================================== */
+
+.news-container {
+    max-width: 1150px;
+    margin: 45px auto;
+    padding: 0 15px;
+}
+
+.event-section {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.event-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.article-header {
+    background: var(--card-bg);
+    padding: 38px 20px;
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.article-title {
+    color: var(--primary);
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 750;
+    margin-bottom: 12px;
+}
+
+.article-date {
+    color: #888;
+    font-size: 14px;
+    margin: 0;
+}
+
+.article-content {
+    background: var(--card-bg);
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
     border: 1px solid var(--card-border);
 }
-.article-content p { font-size: 1.1rem; line-height: 1.8; color: var(--text-color); margin-bottom: 20px; }
-.article-img { width: 100%; border-radius: 10px; margin-bottom: 25px; }
 
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-bottom: 30px; }
-.gallery-img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); transition: 0.3s; cursor: pointer; }
-.gallery-img:hover { transform: scale(1.03); }
+.article-content p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    text-align: justify;
+}
 
-.event-section { display: none; }
-.event-section.active { display: block; }
+.article-content h5 {
+    color: var(--text-color);
+    font-weight: 700;
+}
 
-footer { background: var(--footer-bg); color: var(--footer-text); padding: 30px 20px; text-align: center; margin-top: 50px; transition: 0.3s; }
+
+/* =====================================
+   6. EVENT IMAGE GALLERY
+===================================== */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 9px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.gallery-img:hover {
+    transform: scale(1.025);
+    box-shadow: 0 8px 20px rgba(11,114,185,0.2);
+}
+
+.article-img {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+
+/* =====================================
+   7. EVENT DETAILS / BADGES
+===================================== */
+
+.event-tag {
+    display: inline-block;
+    background: rgba(11,114,185,0.12);
+    color: var(--primary);
+    padding: 7px 13px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    margin: 5px 3px;
+}
+
+.event-divider {
+    border: none;
+    border-top: 1px solid var(--card-border);
+    margin: 28px 0;
+}
+
+
+/* =====================================
+   8. BUTTONS
+===================================== */
+
+.btn-primary {
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+}
+
+.btn-primary:hover {
+    background: #084e80 !important;
+    border-color: #084e80 !important;
+}
+
+.back-home-btn {
+    display: inline-block;
+    padding: 11px 20px;
+    border-radius: 7px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.back-home-btn:hover {
+    background: #084e80;
+    color: white;
+    transform: translateY(-2px);
+}
+
+
+/* =====================================
+   9. IMAGE LIGHTBOX
+===================================== */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 5000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 95%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+
+/* =====================================
+   10. FOOTER - SAME AS INDEX
+===================================== */
+
+footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 30px 15px;
+    margin-top: 50px;
+}
+
+footer p {
+    margin: 5px;
+}
+
+
+/* =====================================
+   11. DARK MODE FIXES
+===================================== */
+
+body.dark-mode .article-content,
+body.dark-mode .article-header {
+    background: var(--card-bg);
+}
+
+body.dark-mode .submenu a:hover,
+body.dark-mode .submenu a.active {
+    background: rgba(255,255,255,0.1);
+}
+
+
+/* =====================================
+   12. MOBILE RESPONSIVE
+===================================== */
+
+@media(max-width:768px) {
+
+    .top-header {
+        padding: 10px 12px;
+    }
+
+    .brand-name {
+        font-size: 14px;
+    }
+
+    .brand-subtitle {
+        font-size: 11px;
+    }
+
+    .university-logo {
+        width: 43px;
+        height: 43px;
+    }
+
+    .header-left {
+        gap: 9px;
+    }
+
+    .theme-toggle-btn {
+        width: 37px;
+        height: 37px;
+    }
+
+    .news-banner {
+        padding: 48px 15px;
+    }
+
+    .news-container {
+        margin: 25px auto;
+    }
+
+    .article-content {
+        padding: 20px;
+    }
+
+    .article-content p {
+        font-size: 15px;
+        text-align: left;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .gallery-img {
+        height: 150px;
+    }
+}
+
+@media(max-width:400px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-img {
+        height: 210px;
+    }
+}
+
 </style>
 </head>
+
 <body>
 
-<nav class="navbar navbar-expand-lg">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">
-      <img src="https://i.ibb.co/HfBDmCbn/quest-logo.jpg" alt="QUEST Logo" class="university-logo">
-      <div>
-        <!-- NAME CHANGED HERE -->
-        <span style="display: block; line-height: 1.2;">Cyber Security Department</span>
-        <span style="font-size: 0.7rem; color: #888;">QUEST Nawabshah</span>
-      </div>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+<!-- =====================================
+     HEADER - SAME AS INDEX
+===================================== -->
+
+<header class="top-header">
+
+    <div class="header-left">
+
+        <button class="menu-toggle"
+                onclick="toggleSidebar()"
+                aria-label="Open navigation menu">
+
+            <i class="fas fa-bars"></i>
+
+        </button>
+
+        <img
+            src="https://i.ibb.co/HfBDmCbn/quest-logo.jpg"
+            alt="QUEST University Logo"
+            class="university-logo">
+
+        <div>
+            <div class="brand-name">Cyber Security Department</div>
+            <div class="brand-subtitle">QUEST Nawabshah</div>
+        </div>
+
+    </div>
+
+    <button class="theme-toggle-btn"
+            onclick="toggleTheme()"
+            title="Change Theme"
+            aria-label="Toggle dark and light theme">
+
+        <i class="fas fa-moon" id="theme-icon"></i>
+
     </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto align-items-center">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">About</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="chairman.html">Chairman & Dean</a></li>
-            <li><a class="dropdown-item" href="department.html">Department</a></li>
-            <li><a class="dropdown-item" href="labs.html">Laboratories</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Programs</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="programs.html">Undergraduate (BS)</a></li>
-            <li><a class="dropdown-item" href="curriculum.html">Curriculum</a></li>
-            <li><a class="dropdown-item" href="timetable.html">Timetable</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="people.html">People</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
-        
-        <!-- THEME TOGGLE BUTTON -->
-        <li class="nav-item">
-          <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
-            <i class="fas fa-moon" id="theme-icon"></i>
-          </button>
-        </li>
-      </ul>
+
+</header>
+
+
+<!-- =====================================
+     SIDEBAR OVERLAY
+===================================== -->
+
+<div class="sidebar-overlay"
+     id="sidebarOverlay"
+     onclick="closeSidebar()">
+</div>
+
+
+<!-- =====================================
+     SIDEBAR NAVIGATION
+===================================== -->
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-header">
+
+        <div class="sidebar-heading">
+            <i class="fas fa-shield-halved me-2"></i>
+            Navigation
+        </div>
+
+        <button class="sidebar-close"
+                onclick="closeSidebar()"
+                aria-label="Close navigation">
+
+            <i class="fas fa-times"></i>
+
+        </button>
+
     </div>
-  </div>
-</nav>
 
-<div class="container mb-5" style="margin-top: 40px;">
-  
-  <!-- EVENT 1: AWARENESS SESSION -->
-  <div id="event1" class="event-section">
-    <div class="article-header text-center">
-      <h1 class="article-title">CYSE 26 BATCH AWARENESS SESSION</h1>
-      <p class="article-date"><i class="far fa-calendar-alt"></i> October 19, 2026 | <i class="fas fa-tag"></i> Events</p>
+
+    <a href="index.html" class="sidebar-link"
+       onclick="closeSidebar()">
+
+        <i class="fas fa-home"></i>
+        Home
+
+    </a>
+
+
+    <!-- ABOUT -->
+
+    <a class="sidebar-link dropdown-toggle"
+       data-bs-toggle="collapse"
+       href="#aboutMenu"
+       role="button"
+       aria-expanded="false">
+
+        <i class="fas fa-university"></i>
+        About
+
+    </a>
+
+    <div class="collapse submenu" id="aboutMenu">
+
+        <a href="chairman.html">
+            <i class="fas fa-user-tie me-2"></i>
+            Chairman
+        </a>
+
+        <a href="department.html">
+            <i class="fas fa-building me-2"></i>
+            Department
+        </a>
+
+        <a href="labs.html">
+            <i class="fas fa-microscope me-2"></i>
+            Laboratories
+        </a>
+
     </div>
-    <div class="row"><div class="col-lg-10 mx-auto"><div class="article-content">
-      <div class="gallery-grid">
-        <img src="https://i.ibb.co/BK2Yhw81/IMG-20261019-WA0043.jpg" class="gallery-img" alt="Awareness 1">
-        <img src="https://i.ibb.co/nsCr1zBg/IMG-20261019-WA0050.jpg" class="gallery-img" alt="Awareness 2">
-        <img src="https://i.ibb.co/xSLPq0Ks/IMG-20261019-WA0048.jpg" class="gallery-img" alt="Awareness 3">
-        <img src="https://i.ibb.co/zw9q1gL/IMG-20261019-WA0049.jpg" class="gallery-img" alt="Awareness 4">
-        <img src="https://i.ibb.co/bMzgBMvy/IMG-20261019-WA0047.jpg" class="gallery-img" alt="Awareness 5">
-      </div>
-      <p>The Cyber Security Department successfully organized an <strong>Awareness Session</strong> for the newly inducted CYSE 26 Batch. The session aimed to introduce students to the importance of cybersecurity in the modern digital era.</p>
-      <p>Faculty members discussed the curriculum, career opportunities, and the ethical responsibilities of a cybersecurity professional. Students were highly interactive and showed great enthusiasm for their upcoming academic journey.</p>
-      <div class="mt-4"><a href="index.html" class="btn btn-primary" style="background: var(--primary);">&larr; Back to Home</a></div>
-    </div></div></div>
-  </div>
 
-  <!-- EVENT 2: ORIENTATION -->
-  <div id="event2" class="event-section">
-    <div class="article-header text-center">
-      <h1 class="article-title">CYSE 26 BATCH ORIENTATION</h1>
-      <p class="article-date"><i class="far fa-calendar-alt"></i> October 18, 2026 | <i class="fas fa-tag"></i> Events</p>
+
+    <!-- PROGRAMS -->
+
+    <a class="sidebar-link dropdown-toggle"
+       data-bs-toggle="collapse"
+       href="#programMenu"
+       role="button"
+       aria-expanded="false">
+
+        <i class="fas fa-graduation-cap"></i>
+        Programs
+
+    </a>
+
+    <div class="collapse submenu" id="programMenu">
+
+        <a href="programs.html">
+            <i class="fas fa-book-open me-2"></i>
+            Undergraduate (BS)
+        </a>
+
+        <a href="curriculum.html">
+            <i class="fas fa-book me-2"></i>
+            Curriculum
+        </a>
+
+        <a href="timetable.html">
+            <i class="fas fa-calendar-alt me-2"></i>
+            Timetable
+        </a>
+
     </div>
-    <div class="row"><div class="col-lg-10 mx-auto"><div class="article-content">
-      <div class="gallery-grid">
-        <img src="https://i.ibb.co/0V2HRXKc/IMG-20261019-WA0044.jpg" class="gallery-img" alt="Orientation 1">
-        <img src="https://i.ibb.co/XZ6HdNhg/IMG-20261019-WA0045.jpg" class="gallery-img" alt="Orientation 2">
-        <img src="https://i.ibb.co/35njvnX2/IMG-20261019-WA0042.jpg" class="gallery-img" alt="Orientation 3">
-      </div>
-      <p>The Department of Cyber Security hosted a warm <strong>Orientation Ceremony</strong> to welcome the CYSE 26 Batch. The event was graced by the Chairman, Dean, and esteemed faculty members.</p>
-      <p>Students were briefed about the university's code of conduct, the BS Cyber Security program structure, and the state-of-the-art laboratory facilities available to them. The orientation helped students build a connection with their teachers and peers.</p>
-      <div class="mt-4"><a href="index.html" class="btn btn-primary" style="background: var(--primary);">&larr; Back to Home</a></div>
-    </div></div></div>
-  </div>
 
-  <!-- EVENT 3: AGENTIC AI SESSION -->
-  <div id="event3" class="event-section">
-    <div class="article-header text-center">
-      <h1 class="article-title">AGENTIC AI SESSION FOR CYBERSECURITY</h1>
-      <p class="article-date"><i class="far fa-calendar-alt"></i> October 17, 2026 | <i class="fas fa-tag"></i> Seminar</p>
+
+    <a href="people.html"
+       class="sidebar-link"
+       onclick="closeSidebar()">
+
+        <i class="fas fa-users"></i>
+        People
+
+    </a>
+
+
+    <a href="research.html"
+       class="sidebar-link"
+       onclick="closeSidebar()">
+
+        <i class="fas fa-flask"></i>
+        Research
+
+    </a>
+
+
+    <!-- EVENTS DROPDOWN -->
+
+    <a class="sidebar-link dropdown-toggle active"
+       data-bs-toggle="collapse"
+       href="#eventsMenu"
+       role="button"
+       aria-expanded="true">
+
+        <i class="fas fa-calendar-alt"></i>
+        Events
+
+    </a>
+
+    <div class="collapse submenu show" id="eventsMenu">
+
+        <a href="news.html?id=4" id="eventLink4">
+            <i class="fas fa-flag me-2"></i>
+            HECK READY 2026
+        </a>
+
+        <a href="news.html?id=1" id="eventLink1">
+            <i class="fas fa-bullhorn me-2"></i>
+            Awareness Session
+        </a>
+
+        <a href="news.html?id=2" id="eventLink2">
+            <i class="fas fa-users me-2"></i>
+            Batch Orientation
+        </a>
+
+        <a href="news.html?id=3" id="eventLink3">
+            <i class="fas fa-robot me-2"></i>
+            Agentic AI Session
+        </a>
+
+        <a href="news.html" id="allEventsLink">
+            <i class="fas fa-newspaper me-2"></i>
+            All News & Events
+        </a>
+
     </div>
-    <div class="row"><div class="col-lg-10 mx-auto"><div class="article-content">
-      <div class="gallery-grid">
-        <img src="https://i.ibb.co/B2tzdjFD/IMG-20261019-WA0041.jpg" class="gallery-img" alt="Agentic AI Session">
-      </div>
-      <p>An insightful technical session on <strong>Agentic AI in Cybersecurity</strong> was conducted for the students. The session explored how autonomous AI agents are revolutionizing threat detection, automated response, and vulnerability management.</p>
-      <p>Students learned about the intersection of AI and security, and how modern enterprises are using AI-driven tools to defend against sophisticated cyber attacks. The session concluded with a Q&A round.</p>
-      <div class="mt-4"><a href="index.html" class="btn btn-primary" style="background: var(--primary);">&larr; Back to Home</a></div>
-    </div></div></div>
-  </div>
 
-  <!-- EVENT 4: HECK READY 2026 (NEW) -->
-  <div id="event4" class="event-section">
-    <div class="article-header text-center">
-      <h1 class="article-title">HECK READY 2026 - MINI CTF</h1>
-      <p class="article-date"><i class="far fa-calendar-alt"></i> October 21, 2026 | <i class="fas fa-tag"></i> Competition</p>
+
+    <a href="index.html#contact"
+       class="sidebar-link"
+       onclick="closeSidebar()">
+
+        <i class="fas fa-envelope"></i>
+        Contact
+
+    </a>
+
+</aside>
+
+
+<!-- =====================================
+     PAGE BANNER
+===================================== -->
+
+<section class="news-banner">
+
+    <div class="container">
+
+        <span class="news-banner-label">
+            QUEST NAWABSHAH
+        </span>
+
+        <h1>
+            News & Events
+        </h1>
+
+        <p>
+            Explore the latest activities, academic events,
+            competitions, workshops and achievements of the
+            Cyber Security Department at QUEST Nawabshah.
+        </p>
+
     </div>
-    <div class="row"><div class="col-lg-10 mx-auto"><div class="article-content">
-      
-      <img src="https://i.ibb.co/7dbM3CHr/IMG-20261022-WA0032.jpg" class="article-img" alt="HECK READY 2026">
-      
-      <p>The Cyber Security Department at QUEST successfully organized the <strong>HECK READY 2026 - Mini Capture The Flag (CTF)</strong> competition on October 21, 2026. The event brought together talented students who are passionate about ethical hacking and cybersecurity.</p>
-      <p>This Mini CTF was designed to test the practical skills of students in various domains, including Web Exploitation, Cryptography, Reverse Engineering, and Digital Forensics. Participants faced real-world challenges in a controlled environment, which helped bridge the gap between theoretical knowledge and industry practices.</p>
-      <p>The competition saw overwhelming participation and enthusiasm from students across different batches. The worthy Chairman, along with faculty members, appreciated the participants for their problem-solving skills and teamwork. Such initiatives are crucial for building the next generation of cybersecurity professionals in Pakistan.</p>
 
-      <h5 class="mt-4 mb-3 fw-bold" style="color: var(--text-color);">Event Highlights (Gallery):</h5>
-      <div class="gallery-grid">
-        <img src="https://i.ibb.co/mVshJLzk/IMG-20261022-WA0033.jpg" class="gallery-img" alt="Gallery 1">
-        <img src="https://i.ibb.co/60crY3kb/IMG-20261022-WA0034.jpg" class="gallery-img" alt="Gallery 2">
-        <img src="https://i.ibb.co/4nyc1C8z/IMG-20261022-WA0035.jpg" class="gallery-img" alt="Gallery 3">
-        <img src="https://i.ibb.co/xK61KbPj/IMG-20261022-WA0036.jpg" class="gallery-img" alt="Gallery 4">
-        <img src="https://i.ibb.co/LXZMX0Fk/IMG-20261022-WA0025.jpg" class="gallery-img" alt="Gallery 5">
-        <img src="https://i.ibb.co/mVDmvY9t/IMG-20261022-WA0026.jpg" class="gallery-img" alt="Gallery 6">
-        <img src="https://i.ibb.co/zWP9FGMh/IMG-20261022-WA0027.jpg" class="gallery-img" alt="Gallery 7">
-        <img src="https://i.ibb.co/BVzYMdc0/IMG-20261022-WA0028.jpg" class="gallery-img" alt="Gallery 8">
-        <img src="https://i.ibb.co/S4c3ckDp/IMG-20261022-WA0029.jpg" class="gallery-img" alt="Gallery 9">
-        <img src="https://i.ibb.co/B52m6v6B/IMG-20261022-WA0016.jpg" class="gallery-img" alt="Gallery 10">
-        <img src="https://i.ibb.co/XkGSzsgB/IMG-20261022-WA0030.jpg" class="gallery-img" alt="Gallery 11">
-        <img src="https://i.ibb.co/FkyFpscr/IMG-20261022-WA0031.jpg" class="gallery-img" alt="Gallery 12">
-      </div>
+</section>
 
-      <div class="mt-4"><a href="index.html" class="btn btn-primary" style="background: var(--primary);">&larr; Back to Home</a></div>
-    </div></div></div>
-  </div>
+
+<!-- =====================================
+     NEWS CONTENT
+===================================== -->
+
+<main class="news-container">
+
+
+    <!-- EVENT 1: AWARENESS SESSION -->
+
+    <div id="event1" class="event-section">
+
+        <div class="article-header">
+
+            <span class="event-tag">
+                <i class="fas fa-bullhorn me-1"></i>
+                Awareness Session
+            </span>
+
+            <h1 class="article-title">
+                CYSE 26 BATCH AWARENESS SESSION
+            </h1>
+
+            <p class="article-date">
+                <i class="far fa-calendar-alt"></i>
+                October 19, 2026
+                |
+                <i class="fas fa-tag"></i>
+                Events
+            </p>
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-lg-10 mx-auto">
+
+                <div class="article-content">
+
+                    <div class="gallery-grid">
+
+                        <img src="https://i.ibb.co/BK2Yhw81/IMG-20261019-WA0043.jpg"
+                             class="gallery-img"
+                             alt="Awareness Session 1">
+
+                        <img src="https://i.ibb.co/nsCr1zBg/IMG-20261019-WA0050.jpg"
+                             class="gallery-img"
+                             alt="Awareness Session 2">
+
+                        <img src="https://i.ibb.co/xSLPq0Ks/IMG-20261019-WA0048.jpg"
+                             class="gallery-img"
+                             alt="Awareness Session 3">
+
+                        <img src="https://i.ibb.co/zw9q1gL/IMG-20261019-WA0049.jpg"
+                             class="gallery-img"
+                             alt="Awareness Session 4">
+
+                        <img src="https://i.ibb.co/bMzgBMvy/IMG-20261019-WA0047.jpg"
+                             class="gallery-img"
+                             alt="Awareness Session 5">
+
+                    </div>
+
+
+                    <p>
+                        The Cyber Security Department successfully
+                        organized an <strong>Awareness Session</strong>
+                        for the newly inducted CYSE 26 Batch.
+                        The session aimed to introduce students to
+                        the importance of cybersecurity in the
+                        modern digital era.
+                    </p>
+
+                    <p>
+                        Faculty members discussed the curriculum,
+                        career opportunities, and the ethical
+                        responsibilities of a cybersecurity
+                        professional. Students were highly
+                        interactive and showed great enthusiasm
+                        for their upcoming academic journey.
+                    </p>
+
+                    <hr class="event-divider">
+
+                    <div class="mt-4">
+
+                        <a href="index.html" class="back-home-btn">
+                            <i class="fas fa-arrow-left me-2"></i>
+                            Back to Home
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- EVENT 2: ORIENTATION -->
+
+    <div id="event2" class="event-section">
+
+        <div class="article-header">
+
+            <span class="event-tag">
+                <i class="fas fa-users me-1"></i>
+                Orientation
+            </span>
+
+            <h1 class="article-title">
+                CYSE 26 BATCH ORIENTATION
+            </h1>
+
+            <p class="article-date">
+                <i class="far fa-calendar-alt"></i>
+                October 18, 2026
+                |
+                <i class="fas fa-tag"></i>
+                Events
+            </p>
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-lg-10 mx-auto">
+
+                <div class="article-content">
+
+                    <div class="gallery-grid">
+
+                        <img src="https://i.ibb.co/0V2HRXKc/IMG-20261019-WA0044.jpg"
+                             class="gallery-img"
+                             alt="Orientation 1">
+
+                        <img src="https://i.ibb.co/XZ6HdNhg/IMG-20261019-WA0045.jpg"
+                             class="gallery-img"
+                             alt="Orientation 2">
+
+                        <img src="https://i.ibb.co/35njvnX2/IMG-20261019-WA0042.jpg"
+                             class="gallery-img"
+                             alt="Orientation 3">
+
+                    </div>
+
+
+                    <p>
+                        The Department of Cyber Security hosted a
+                        warm <strong>Orientation Ceremony</strong>
+                        to welcome the CYSE 26 Batch. The event was
+                        graced by the Chairman, Dean, and esteemed
+                        faculty members.
+                    </p>
+
+                    <p>
+                        Students were briefed about the university's
+                        code of conduct, the BS Cyber Security
+                        program structure, and the state-of-the-art
+                        laboratory facilities available to them.
+                        The orientation helped students build a
+                        connection with their teachers and peers.
+                    </p>
+
+                    <hr class="event-divider">
+
+                    <div class="mt-4">
+
+                        <a href="index.html" class="back-home-btn">
+                            <i class="fas fa-arrow-left me-2"></i>
+                            Back to Home
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- EVENT 3: AGENTIC AI SESSION -->
+
+    <div id="event3" class="event-section">
+
+        <div class="article-header">
+
+            <span class="event-tag">
+                <i class="fas fa-robot me-1"></i>
+                Technical Seminar
+            </span>
+
+            <h1 class="article-title">
+                AGENTIC AI SESSION FOR CYBERSECURITY
+            </h1>
+
+            <p class="article-date">
+                <i class="far fa-calendar-alt"></i>
+                October 17, 2026
+                |
+                <i class="fas fa-tag"></i>
+                Seminar
+            </p>
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-lg-10 mx-auto">
+
+                <div class="article-content">
+
+                    <div class="gallery-grid">
+
+                        <img src="https://i.ibb.co/B2tzdjFD/IMG-20261019-WA0041.jpg"
+                             class="gallery-img"
+                             alt="Agentic AI Session">
+
+                    </div>
+
+
+                    <p>
+                        An insightful technical session on
+                        <strong>Agentic AI in Cybersecurity</strong>
+                        was conducted for the students. The session
+                        explored how autonomous AI agents are
+                        revolutionizing threat detection, automated
+                        response, and vulnerability management.
+                    </p>
+
+                    <p>
+                        Students learned about the intersection of
+                        AI and security, and how modern enterprises
+                        are using AI-driven tools to defend against
+                        sophisticated cyber attacks. The session
+                        concluded with a Q&A round.
+                    </p>
+
+                    <hr class="event-divider">
+
+                    <div class="mt-4">
+
+                        <a href="index.html" class="back-home-btn">
+                            <i class="fas fa-arrow-left me-2"></i>
+                            Back to Home
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- EVENT 4: HECK READY 2026 -->
+
+    <div id="event4" class="event-section">
+
+        <div class="article-header">
+
+            <span class="event-tag">
+                <i class="fas fa-flag me-1"></i>
+                Cybersecurity Competition
+            </span>
+
+            <h1 class="article-title">
+                HECK READY 2026 - MINI CTF
+            </h1>
+
+            <p class="article-date">
+                <i class="far fa-calendar-alt"></i>
+                October 21, 2026
+                |
+                <i class="fas fa-tag"></i>
+                Competition
+            </p>
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-lg-10 mx-auto">
+
+                <div class="article-content">
+
+                    <img src="https://i.ibb.co/7dbM3CHr/IMG-20261022-WA0032.jpg"
+                         class="article-img"
+                         alt="HECK READY 2026 Main Event">
+
+
+                    <p>
+                        The Cyber Security Department at QUEST
+                        successfully organized the
+                        <strong>HECK READY 2026 - Mini Capture The
+                        Flag (CTF)</strong> competition on
+                        October 21, 2026. The event brought together
+                        talented students who are passionate about
+                        ethical hacking and cybersecurity.
+                    </p>
+
+                    <p>
+                        This Mini CTF was designed to test the
+                        practical skills of students in various
+                        domains, including Web Exploitation,
+                        Cryptography, Reverse Engineering, and
+                        Digital Forensics. Participants faced
+                        real-world challenges in a controlled
+                        environment, which helped bridge the gap
+                        between theoretical knowledge and
+                        industry practices.
+                    </p>
+
+                    <p>
+                        The competition saw overwhelming
+                        participation and enthusiasm from students
+                        across different batches. The worthy
+                        Chairman, along with faculty members,
+                        appreciated the participants for their
+                        problem-solving skills and teamwork.
+                        Such initiatives are crucial for building
+                        the next generation of cybersecurity
+                        professionals in Pakistan.
+                    </p>
+
+
+                    <hr class="event-divider">
+
+
+                    <h5 class="mt-4 mb-3">
+                        <i class="fas fa-images me-2"
+                           style="color:var(--primary);"></i>
+                        Event Highlights - Gallery
+                    </h5>
+
+
+                    <div class="gallery-grid">
+
+                        <img src="https://i.ibb.co/mVshJLzk/IMG-20261022-WA0033.jpg"
+                             class="gallery-img" alt="Gallery 1">
+
+                        <img src="https://i.ibb.co/60crY3kb/IMG-20261022-WA0034.jpg"
+                             class="gallery-img" alt="Gallery 2">
+
+                        <img src="https://i.ibb.co/4nyc1C8z/IMG-20261022-WA0035.jpg"
+                             class="gallery-img" alt="Gallery 3">
+
+                        <img src="https://i.ibb.co/xK61KbPj/IMG-20261022-WA0036.jpg"
+                             class="gallery-img" alt="Gallery 4">
+
+                        <img src="https://i.ibb.co/LXZMX0Fk/IMG-20261022-WA0025.jpg"
+                             class="gallery-img" alt="Gallery 5">
+
+                        <img src="https://i.ibb.co/mVDmvY9t/IMG-20261022-WA0026.jpg"
+                             class="gallery-img" alt="Gallery 6">
+
+                        <img src="https://i.ibb.co/zWP9FGMh/IMG-20261022-WA0027.jpg"
+                             class="gallery-img" alt="Gallery 7">
+
+                        <img src="https://i.ibb.co/BVzYMdc0/IMG-20261022-WA0028.jpg"
+                             class="gallery-img" alt="Gallery 8">
+
+                        <img src="https://i.ibb.co/S4c3ckDp/IMG-20261022-WA0029.jpg"
+                             class="gallery-img" alt="Gallery 9">
+
+                        <img src="https://i.ibb.co/B52m6v6B/IMG-20261022-WA0016.jpg"
+                             class="gallery-img" alt="Gallery 10">
+
+                        <img src="https://i.ibb.co/XkGSzsgB/IMG-20261022-WA0030.jpg"
+                             class="gallery-img" alt="Gallery 11">
+
+                        <img src="https://i.ibb.co/FkyFpscr/IMG-20261022-WA0031.jpg"
+                             class="gallery-img" alt="Gallery 12">
+
+                    </div>
+
+
+                    <hr class="event-divider">
+
+
+                    <div class="mt-4">
+
+                        <a href="index.html" class="back-home-btn">
+                            <i class="fas fa-arrow-left me-2"></i>
+                            Back to Home
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- INVALID EVENT MESSAGE -->
+
+    <div id="notFound" class="event-section">
+
+        <div class="article-header">
+
+            <i class="fas fa-calendar-times"
+               style="font-size:45px;color:var(--primary);margin-bottom:15px;"></i>
+
+            <h2 class="article-title">
+                Event Not Found
+            </h2>
+
+            <p class="article-date">
+                The requested event could not be found.
+            </p>
+
+            <a href="news.html?id=4" class="back-home-btn mt-3">
+                View Latest Event
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- =====================================
+     IMAGE LIGHTBOX
+===================================== -->
+
+<div class="lightbox" id="lightbox"
+     onclick="closeLightbox()">
+
+    <button class="lightbox-close"
+            onclick="closeLightbox()"
+            aria-label="Close image">
+
+        <i class="fas fa-times"></i>
+
+    </button>
+
+    <img src="" id="lightboxImage" alt="Expanded event image">
 
 </div>
 
+
+<!-- =====================================
+     FOOTER - SAME AS INDEX
+===================================== -->
+
 <footer>
-  <p>© 2026 Cyber Security Department, QUEST. All Rights Reserved.</p>
-  <p style="font-size: 0.8rem; color: #888; margin-top: 10px;">Developed by Mariam Khan</p>
+
+    <p>
+        © 2026 Cyber Security Department, QUEST.
+        All Rights Reserved.
+    </p>
+
+    <p style="font-size:0.8rem;color:#888;margin-top:10px;">
+        Developed by Mariam Khan
+    </p>
+
 </footer>
 
+
+<!-- =====================================
+     SCRIPTS
+===================================== -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
-  // --- THEME TOGGLE LOGIC ---
-  function toggleTheme() {
-      const body = document.body;
-      const icon = document.getElementById('theme-icon');
-      
-      body.classList.toggle('dark-mode');
-      
-      if (body.classList.contains('dark-mode')) {
-          localStorage.setItem('theme', 'dark');
-          icon.classList.remove('fa-moon');
-          icon.classList.add('fa-sun');
-      } else {
-          localStorage.setItem('theme', 'light');
-          icon.classList.remove('fa-sun');
-          icon.classList.add('fa-moon');
-      }
-  }
 
-  document.addEventListener("DOMContentLoaded", () => {
-      const savedTheme = localStorage.getItem('theme');
-      const icon = document.getElementById('theme-icon');
-      
-      if (savedTheme === 'dark') {
-          document.body.classList.add('dark-mode');
-          if(icon) {
-              icon.classList.remove('fa-moon');
-              icon.classList.add('fa-sun');
-          }
-      }
-  });
+/* =====================================
+   1. DARK / LIGHT THEME
+===================================== */
 
-  // --- NEWS EVENT SHOW LOGIC ---
-  const urlParams = new URLSearchParams(window.location.search);
-  const newsId = urlParams.get('id');
+function toggleTheme() {
 
-  document.querySelectorAll('.event-section').forEach(sec => sec.classList.remove('active'));
+    const body = document.body;
+    const icon = document.getElementById('theme-icon');
 
-  if (newsId === '1') document.getElementById('event1').classList.add('active');
-  else if (newsId === '2') document.getElementById('event2').classList.add('active');
-  else if (newsId === '3') document.getElementById('event3').classList.add('active');
-  else if (newsId === '4') document.getElementById('event4').classList.add('active');
-  else document.getElementById('event4').classList.add('active'); // Default naya event
+    body.classList.toggle('dark-mode');
+
+    if (body.classList.contains('dark-mode')) {
+
+        localStorage.setItem('theme', 'dark');
+
+        if (icon) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+
+    } else {
+
+        localStorage.setItem('theme', 'light');
+
+        if (icon) {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+
+    }
+
+}
+
+
+/* Load previously selected theme */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const savedTheme = localStorage.getItem('theme');
+    const icon = document.getElementById('theme-icon');
+
+    if (savedTheme === 'dark') {
+
+        document.body.classList.add('dark-mode');
+
+        if (icon) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+
+    }
+
+});
+
+
+/* =====================================
+   2. SIDEBAR CONTROLS
+===================================== */
+
+function toggleSidebar() {
+
+    document.getElementById('sidebar').classList.add('active');
+
+    document.getElementById('sidebarOverlay').classList.add('active');
+
+}
+
+function closeSidebar() {
+
+    document.getElementById('sidebar').classList.remove('active');
+
+    document.getElementById('sidebarOverlay').classList.remove('active');
+
+}
+
+
+/* Close sidebar with Escape key */
+
+document.addEventListener('keydown', function(event) {
+
+    if (event.key === 'Escape') {
+
+        closeSidebar();
+        closeLightbox();
+
+    }
+
+});
+
+
+/* =====================================
+   3. SHOW EVENT USING URL ID
+===================================== */
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const newsId = urlParams.get('id');
+
+    const eventSections = document.querySelectorAll('.event-section');
+
+    eventSections.forEach(function(section) {
+        section.classList.remove('active');
+    });
+
+
+    const eventLinks = {
+        '1': 'eventLink1',
+        '2': 'eventLink2',
+        '3': 'eventLink3',
+        '4': 'eventLink4'
+    };
+
+
+    let selectedEvent = null;
+
+    if (newsId === null || newsId === '') {
+
+        selectedEvent = document.getElementById('event4');
+
+    } else {
+
+        selectedEvent = document.getElementById('event' + newsId);
+
+    }
+
+
+    if (selectedEvent && selectedEvent.id !== 'notFound') {
+
+        selectedEvent.classList.add('active');
+
+    } else {
+
+        document.getElementById('notFound').classList.add('active');
+
+    }
+
+
+    /* Highlight current event in sidebar */
+
+    Object.values(eventLinks).forEach(function(linkId) {
+
+        const link = document.getElementById(linkId);
+
+        if (link) {
+            link.classList.remove('active');
+        }
+
+    });
+
+    const activeLink = eventLinks[newsId || '4'];
+
+    if (activeLink) {
+
+        document.getElementById(activeLink).classList.add('active');
+
+    }
+
+});
+
+
+/* =====================================
+   4. IMAGE LIGHTBOX
+===================================== */
+
+document.querySelectorAll('.gallery-img, .article-img').forEach(function(img) {
+
+    img.addEventListener('click', function() {
+
+        const lightbox = document.getElementById('lightbox');
+
+        const lightboxImage = document.getElementById('lightboxImage');
+
+        lightboxImage.src = this.src;
+
+        lightboxImage.alt = this.alt;
+
+        lightbox.classList.add('active');
+
+    });
+
+});
+
+
+function closeLightbox() {
+
+    const lightbox = document.getElementById('lightbox');
+
+    if (lightbox) {
+        lightbox.classList.remove('active');
+    }
+
+}
+
 </script>
+
 </body>
 </html>

@@ -13,7 +13,7 @@
 <style>
 
 /* =====================================
-   1. SHARED THEME COLORS - SAME AS INDEX
+   1. SHARED THEME COLORS
 ===================================== */
 
 :root {
@@ -58,7 +58,7 @@ body {
 
 
 /* =====================================
-   2. TOP HEADER - SAME AS INDEX
+   2. TOP HEADER
 ===================================== */
 
 .top-header {
@@ -137,7 +137,7 @@ body {
 
 
 /* =====================================
-   3. SIDEBAR - SAME AS INDEX
+   3. SIDEBAR
 ===================================== */
 
 .sidebar {
@@ -245,7 +245,7 @@ body {
 
 
 /* =====================================
-   4. NEWS PAGE INTRODUCTION
+   4. PAGE BANNER
 ===================================== */
 
 .news-banner {
@@ -359,7 +359,7 @@ body {
 
 
 /* =====================================
-   6. EVENT IMAGE GALLERY
+   6. EXISTING EVENT GALLERY
 ===================================== */
 
 .gallery-grid {
@@ -395,7 +395,326 @@ body {
 
 
 /* =====================================
-   7. EVENT DETAILS / BADGES
+   7. NEW ALL NEWS & GALLERY DESIGN
+===================================== */
+
+.all-news-section {
+    width: 100%;
+}
+
+.gallery-intro {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.gallery-intro .small-label {
+    display: inline-block;
+    color: var(--primary);
+    background: rgba(11,114,185,0.10);
+    padding: 8px 17px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.gallery-intro h2 {
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.gallery-intro p {
+    color: #888;
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+
+/* FEATURED EVENT */
+
+.featured-event {
+    position: relative;
+    min-height: 390px;
+    overflow: hidden;
+    border-radius: 18px;
+    margin-bottom: 45px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    background: #071b30;
+}
+
+.featured-event img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+    cursor: pointer;
+}
+
+.featured-event:hover img {
+    transform: scale(1.06);
+}
+
+.featured-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(4,15,29,0.96) 0%,
+        rgba(4,15,29,0.76) 48%,
+        rgba(4,15,29,0.12) 100%
+    );
+    display: flex;
+    align-items: center;
+    padding: 45px;
+    pointer-events: none;
+}
+
+.featured-content {
+    max-width: 530px;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.featured-label {
+    display: inline-block;
+    background: #0B72B9;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+}
+
+.featured-content h2 {
+    font-size: clamp(28px, 4vw, 43px);
+    font-weight: 850;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.featured-content p {
+    color: rgba(255,255,255,0.85);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.featured-btn {
+    display: inline-block;
+    background: white;
+    color: #0B72B9;
+    padding: 12px 21px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: 750;
+    transition: 0.3s;
+    pointer-events: auto;
+}
+
+.featured-btn:hover {
+    background: #0B72B9;
+    color: white;
+    transform: translateY(-3px);
+}
+
+
+/* EVENT CARDS */
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.section-heading h3 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.section-heading span {
+    color: #888;
+    font-size: 13px;
+}
+
+.event-card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 50px;
+}
+
+.event-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 13px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text-color);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 30px rgba(11,114,185,0.15);
+    color: var(--text-color);
+}
+
+.event-card-image {
+    height: 170px;
+    position: relative;
+    overflow: hidden;
+    background: #dce7f0;
+}
+
+.event-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.event-card:hover .event-card-image img {
+    transform: scale(1.09);
+}
+
+.event-card-content {
+    padding: 18px;
+}
+
+.event-card-tag {
+    display: inline-block;
+    color: var(--primary);
+    background: rgba(11,114,185,0.10);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 800;
+    margin-bottom: 11px;
+}
+
+.event-card-content h4 {
+    font-size: 16px;
+    line-height: 1.45;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.event-card-content p {
+    font-size: 12px;
+    color: #888;
+    margin: 0;
+}
+
+.event-card-content .read-more {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 750;
+}
+
+
+/* ALL PHOTOS */
+
+.all-gallery-wrapper {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-top: 15px;
+}
+
+.all-gallery-heading {
+    margin-bottom: 25px;
+}
+
+.all-gallery-heading h3 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 7px;
+    color: var(--text-color);
+}
+
+.all-gallery-heading p {
+    color: #888;
+    margin: 0;
+    font-size: 14px;
+}
+
+.all-gallery-grid {
+    columns: 4 200px;
+    column-gap: 15px;
+}
+
+.all-gallery-item {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border-radius: 11px;
+    break-inside: avoid;
+    background: #dce7f0;
+    cursor: pointer;
+}
+
+.all-gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+    max-height: 320px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.all-gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.all-gallery-item::after {
+    content: "\\f00e";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    inset: 0;
+    background: rgba(4,20,38,0.55);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.all-gallery-item:hover::after {
+    opacity: 1;
+}
+
+.gallery-bottom-note {
+    text-align: center;
+    color: #888;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+
+/* =====================================
+   8. EVENT DETAILS / BADGES
 ===================================== */
 
 .event-tag {
@@ -417,7 +736,7 @@ body {
 
 
 /* =====================================
-   8. BUTTONS
+   9. BUTTONS
 ===================================== */
 
 .btn-primary {
@@ -449,7 +768,7 @@ body {
 
 
 /* =====================================
-   9. IMAGE LIGHTBOX
+   10. IMAGE LIGHTBOX
 ===================================== */
 
 .lightbox {
@@ -487,7 +806,7 @@ body {
 
 
 /* =====================================
-   10. FOOTER - SAME AS INDEX
+   11. FOOTER
 ===================================== */
 
 footer {
@@ -504,7 +823,7 @@ footer p {
 
 
 /* =====================================
-   11. DARK MODE FIXES
+   12. DARK MODE FIXES
 ===================================== */
 
 body.dark-mode .article-content,
@@ -519,8 +838,16 @@ body.dark-mode .submenu a.active {
 
 
 /* =====================================
-   12. MOBILE RESPONSIVE
+   13. MOBILE RESPONSIVE
 ===================================== */
+
+@media(max-width:1000px) {
+
+    .event-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
 
 @media(max-width:768px) {
 
@@ -575,9 +902,70 @@ body.dark-mode .submenu a.active {
     .gallery-img {
         height: 150px;
     }
+
+    .featured-event {
+        min-height: 350px;
+    }
+
+    .featured-overlay {
+        padding: 25px;
+        background: linear-gradient(
+            90deg,
+            rgba(4,15,29,0.93),
+            rgba(4,15,29,0.58)
+        );
+    }
+
+    .featured-content p {
+        font-size: 14px;
+    }
+
+    .all-gallery-wrapper {
+        padding: 17px;
+    }
+
+    .all-gallery-grid {
+        columns: 2 140px;
+        column-gap: 10px;
+    }
+
+    .all-gallery-item {
+        margin-bottom: 10px;
+    }
+
+}
+
+@media(max-width:500px) {
+
+    .event-card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .event-card-image {
+        height: 200px;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .featured-event {
+        min-height: 380px;
+    }
+
+    .featured-overlay {
+        padding: 20px;
+    }
+
+    .all-gallery-grid {
+        columns: 2 120px;
+    }
+
 }
 
 @media(max-width:400px) {
+
     .gallery-grid {
         grid-template-columns: 1fr;
     }
@@ -585,6 +973,7 @@ body.dark-mode .submenu a.active {
     .gallery-img {
         height: 210px;
     }
+
 }
 
 </style>
@@ -593,7 +982,7 @@ body.dark-mode .submenu a.active {
 <body>
 
 <!-- =====================================
-     HEADER - SAME AS INDEX
+     HEADER
 ===================================== -->
 
 <header class="top-header">
@@ -632,9 +1021,7 @@ body.dark-mode .submenu a.active {
 </header>
 
 
-<!-- =====================================
-     SIDEBAR OVERLAY
-===================================== -->
+<!-- SIDEBAR OVERLAY -->
 
 <div class="sidebar-overlay"
      id="sidebarOverlay"
@@ -850,7 +1237,424 @@ body.dark-mode .submenu a.active {
 <main class="news-container">
 
 
-    <!-- EVENT 1: AWARENESS SESSION -->
+    <!-- =====================================
+         ALL NEWS & GALLERY HOME SECTION
+    ====================================== -->
+
+    <div id="allNews" class="event-section all-news-section">
+
+        <div class="gallery-intro">
+
+            <span class="small-label">
+                <i class="fas fa-newspaper me-2"></i>
+                DEPARTMENT UPDATES
+            </span>
+
+            <h2>All News & Events</h2>
+
+            <p>
+                Discover the activities, learning experiences,
+                competitions and memorable moments of the
+                QUEST Cyber Security Department.
+            </p>
+
+        </div>
+
+
+        <!-- FEATURED EVENT -->
+
+        <a href="news.html?id=4"
+           class="featured-event d-block text-decoration-none">
+
+            <img
+                src="https://i.ibb.co/7dbM3CHr/IMG-20261022-WA0032.jpg"
+                alt="HECK READY 2026 Featured Event">
+
+            <div class="featured-overlay">
+
+                <div class="featured-content">
+
+                    <span class="featured-label">
+                        <i class="fas fa-star me-1"></i>
+                        FEATURED EVENT
+                    </span>
+
+                    <h2>
+                        HECK READY 2026
+                        <br>
+                        MINI CTF
+                    </h2>
+
+                    <p>
+                        A cybersecurity competition bringing
+                        students together to test their skills
+                        in ethical hacking, problem-solving
+                        and practical security challenges.
+                    </p>
+
+                    <span class="featured-btn">
+                        Explore Event
+                        <i class="fas fa-arrow-right ms-2"></i>
+                    </span>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- RECENT EVENTS -->
+
+        <div class="section-heading">
+
+            <h3>
+                <i class="fas fa-calendar-check me-2"
+                   style="color:var(--primary);"></i>
+                Department Events
+            </h3>
+
+            <span>Explore our latest activities</span>
+
+        </div>
+
+
+        <div class="event-card-grid">
+
+
+            <!-- CARD 1 -->
+
+            <a href="news.html?id=1" class="event-card">
+
+                <div class="event-card-image">
+
+                    <img
+                        src="https://i.ibb.co/BK2Yhw81/IMG-20261019-WA0043.jpg"
+                        alt="CYSE 26 Awareness Session">
+
+                </div>
+
+                <div class="event-card-content">
+
+                    <span class="event-card-tag">
+                        AWARENESS SESSION
+                    </span>
+
+                    <h4>
+                        CYSE 26 Batch Awareness Session
+                    </h4>
+
+                    <p>
+                        <i class="far fa-calendar-alt me-1"></i>
+                        October 19, 2026
+                    </p>
+
+                    <span class="read-more">
+                        View Details
+                        <i class="fas fa-arrow-right ms-1"></i>
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- CARD 2 -->
+
+            <a href="news.html?id=2" class="event-card">
+
+                <div class="event-card-image">
+
+                    <img
+                        src="https://i.ibb.co/0V2HRXKc/IMG-20261019-WA0044.jpg"
+                        alt="CYSE 26 Batch Orientation">
+
+                </div>
+
+                <div class="event-card-content">
+
+                    <span class="event-card-tag">
+                        ORIENTATION
+                    </span>
+
+                    <h4>
+                        CYSE 26 Batch Orientation
+                    </h4>
+
+                    <p>
+                        <i class="far fa-calendar-alt me-1"></i>
+                        October 18, 2026
+                    </p>
+
+                    <span class="read-more">
+                        View Details
+                        <i class="fas fa-arrow-right ms-1"></i>
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- CARD 3 -->
+
+            <a href="news.html?id=3" class="event-card">
+
+                <div class="event-card-image">
+
+                    <img
+                        src="https://i.ibb.co/B2tzdjFD/IMG-20261019-WA0041.jpg"
+                        alt="Agentic AI Cybersecurity Session">
+
+                </div>
+
+                <div class="event-card-content">
+
+                    <span class="event-card-tag">
+                        TECHNICAL SEMINAR
+                    </span>
+
+                    <h4>
+                        Agentic AI Session for Cybersecurity
+                    </h4>
+
+                    <p>
+                        <i class="far fa-calendar-alt me-1"></i>
+                        October 17, 2026
+                    </p>
+
+                    <span class="read-more">
+                        View Details
+                        <i class="fas fa-arrow-right ms-1"></i>
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- CARD 4 -->
+
+            <a href="news.html?id=4" class="event-card">
+
+                <div class="event-card-image">
+
+                    <img
+                        src="https://i.ibb.co/7dbM3CHr/IMG-20261022-WA0032.jpg"
+                        alt="HECK READY 2026 Mini CTF">
+
+                </div>
+
+                <div class="event-card-content">
+
+                    <span class="event-card-tag">
+                        CYBERSECURITY COMPETITION
+                    </span>
+
+                    <h4>
+                        HECK READY 2026 - Mini CTF
+                    </h4>
+
+                    <p>
+                        <i class="far fa-calendar-alt me-1"></i>
+                        October 21, 2026
+                    </p>
+
+                    <span class="read-more">
+                        View Details
+                        <i class="fas fa-arrow-right ms-1"></i>
+                    </span>
+
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <!-- ALL EVENT PHOTOS -->
+
+        <div class="all-gallery-wrapper">
+
+            <div class="all-gallery-heading">
+
+                <h3>
+                    <i class="fas fa-images me-2"
+                       style="color:var(--primary);"></i>
+                    Moments & Memories
+                </h3>
+
+                <p>
+                    A visual collection of events, activities
+                    and memorable moments from our department.
+                </p>
+
+            </div>
+
+
+            <div class="all-gallery-grid">
+
+
+                <!-- AWARENESS SESSION PHOTOS -->
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/BK2Yhw81/IMG-20261019-WA0043.jpg"
+                         class="gallery-img"
+                         alt="Awareness Session Photo 1">
+                </div>
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/nsCr1zBg/IMG-20261019-WA0050.jpg"
+                         class="gallery-img"
+                         alt="Awareness Session Photo 2">
+                </div>
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/xSLPq0Ks/IMG-20261019-WA0048.jpg"
+                         class="gallery-img"
+                         alt="Awareness Session Photo 3">
+                </div>
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/zw9q1gL/IMG-20261019-WA0049.jpg"
+                         class="gallery-img"
+                         alt="Awareness Session Photo 4">
+                </div>
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/bMzgBMvy/IMG-20261019-WA0047.jpg"
+                         class="gallery-img"
+                         alt="Awareness Session Photo 5">
+                </div>
+
+
+                <!-- ORIENTATION PHOTOS -->
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/0V2HRXKc/IMG-20261019-WA0044.jpg"
+                         class="gallery-img"
+                         alt="Batch Orientation Photo 1">
+                </div>
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/XZ6HdNhg/IMG-20261019-WA0045.jpg"
+                         class="gallery-img"
+                         alt="Batch Orientation Photo 2">
+                </div>
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/35njvnX2/IMG-20261019-WA0042.jpg"
+                         class="gallery-img"
+                         alt="Batch Orientation Photo 3">
+                </div>
+
+
+                <!-- AGENTIC AI PHOTO -->
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/B2tzdjFD/IMG-20261019-WA0041.jpg"
+                         class="gallery-img"
+                         alt="Agentic AI Session">
+                </div>
+
+
+                <!-- HECK READY 2026 PHOTOS -->
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/7dbM3CHr/IMG-20261022-WA0032.jpg"
+                         class="gallery-img"
+                         alt="HECK READY Main Event">
+                </div>
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/mVshJLzk/IMG-20261022-WA0033.jpg"
+                         class="gallery-img"
+                         alt="HECK READY Gallery Photo 1">
+                </div>
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/60crY3kb/IMG-20261022-WA0034.jpg"
+                         class="gallery-img"
+                         alt="HECK READY Gallery Photo 2">
+                </div>
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/4nyc1C8z/IMG-20261022-WA0035.jpg"
+                         class="gallery-img"
+                         alt="HECK READY Gallery Photo 3">
+                </div>
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/xK61KbPj/IMG-20261022-WA0036.jpg"
+                         class="gallery-img"
+                         alt="HECK READY Gallery Photo 4">
+                </div>
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/LXZMX0Fk/IMG-20261022-WA0025.jpg"
+                         class="gallery-img"
+                         alt="HECK READY Gallery Photo 5">
+                </div>
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/mVDmvY9t/IMG-20261022-WA0026.jpg"
+                         class="gallery-img"
+                         alt="HECK READY Gallery Photo 6">
+                </div>
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/zWP9FGMh/IMG-20261022-WA0027.jpg"
+                         class="gallery-img"
+                         alt="HECK READY Gallery Photo 7">
+                </div>
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/BVzYMdc0/IMG-20261022-WA0028.jpg"
+                         class="gallery-img"
+                         alt="HECK READY Gallery Photo 8">
+                </div>
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/S4c3ckDp/IMG-20261022-WA0029.jpg"
+                         class="gallery-img"
+                         alt="HECK READY Gallery Photo 9">
+                </div>
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/B52m6v6B/IMG-20261022-WA0016.jpg"
+                         class="gallery-img"
+                         alt="HECK READY Gallery Photo 10">
+                </div>
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/XkGSzsgB/IMG-20261022-WA0030.jpg"
+                         class="gallery-img"
+                         alt="HECK READY Gallery Photo 11">
+                </div>
+
+                <div class="all-gallery-item">
+                    <img src="https://i.ibb.co/FkyFpscr/IMG-20261022-WA0031.jpg"
+                         class="gallery-img"
+                         alt="HECK READY Gallery Photo 12">
+                </div>
+
+            </div>
+
+
+            <p class="gallery-bottom-note">
+                <i class="fas fa-camera me-1"></i>
+                Capturing learning, teamwork and achievements
+                at QUEST Cyber Security Department.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         EVENT 1: AWARENESS SESSION
+    ====================================== -->
 
     <div id="event1" class="event-section">
 
@@ -946,7 +1750,9 @@ body.dark-mode .submenu a.active {
 
 
 
-    <!-- EVENT 2: ORIENTATION -->
+    <!-- =====================================
+         EVENT 2: ORIENTATION
+    ====================================== -->
 
     <div id="event2" class="event-section">
 
@@ -1033,7 +1839,9 @@ body.dark-mode .submenu a.active {
 
 
 
-    <!-- EVENT 3: AGENTIC AI SESSION -->
+    <!-- =====================================
+         EVENT 3: AGENTIC AI SESSION
+    ====================================== -->
 
     <div id="event3" class="event-section">
 
@@ -1112,7 +1920,9 @@ body.dark-mode .submenu a.active {
 
 
 
-    <!-- EVENT 4: HECK READY 2026 -->
+    <!-- =====================================
+         EVENT 4: HECK READY 2026
+    ====================================== -->
 
     <div id="event4" class="event-section">
 
@@ -1305,7 +2115,7 @@ body.dark-mode .submenu a.active {
 
 
 <!-- =====================================
-     FOOTER - SAME AS INDEX
+     FOOTER
 ===================================== -->
 
 <footer>
@@ -1447,9 +2257,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let selectedEvent = null;
 
+
+    /* No ID = Show All News & Gallery */
+
     if (newsId === null || newsId === '') {
 
-        selectedEvent = document.getElementById('event4');
+        selectedEvent = document.getElementById('allNews');
 
     } else {
 
@@ -1481,11 +2294,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
     });
 
-    const activeLink = eventLinks[newsId || '4'];
 
-    if (activeLink) {
+    const allEventsLink = document.getElementById('allEventsLink');
 
-        document.getElementById(activeLink).classList.add('active');
+    if (allEventsLink) {
+        allEventsLink.classList.remove('active');
+    }
+
+
+    if (newsId === null || newsId === '') {
+
+        if (allEventsLink) {
+            allEventsLink.classList.add('active');
+        }
+
+    } else {
+
+        const activeLink = eventLinks[newsId];
+
+        if (activeLink) {
+
+            document.getElementById(activeLink).classList.add('active');
+
+        }
 
     }
 
@@ -1496,9 +2327,14 @@ document.addEventListener("DOMContentLoaded", function() {
    4. IMAGE LIGHTBOX
 ===================================== */
 
-document.querySelectorAll('.gallery-img, .article-img').forEach(function(img) {
+document.querySelectorAll('.gallery-img, .article-img, .featured-event img').forEach(function(img) {
 
-    img.addEventListener('click', function() {
+    img.addEventListener('click', function(event) {
+
+        /* Prevent featured image click from opening event link */
+        if (this.closest('.featured-event')) {
+            event.preventDefault();
+        }
 
         const lightbox = document.getElementById('lightbox');
 

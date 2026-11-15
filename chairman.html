@@ -1,208 +1,902 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chairman & Dean Message - QUEST Cyber Security</title>
+
+<title>Chairman & Dean | Cyber Security Department - QUEST</title>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
 <style>
-:root { 
-    --primary: #0B72B9; 
+:root {
+    --primary: #0B72B9;
     --nav-bg: #ffffff;
     --nav-text: #333333;
-    --body-bg: #f4f7fb; 
+    --body-bg: #f4f7fb;
     --text-color: #333333;
     --card-bg: #ffffff;
     --card-border: rgba(0,0,0,0.08);
+    --footer-bg: #0A1929;
+    --footer-text: #ffffff;
 }
 
 body.dark-mode {
     --nav-bg: #0f172a;
     --nav-text: #e2e8f0;
-    --body-bg: #0f172a; 
+    --body-bg: #0f172a;
     --text-color: #e2e8f0;
     --card-bg: #1e293b;
     --card-border: rgba(255,255,255,0.1);
+    --footer-bg: #020617;
+    --footer-text: #e2e8f0;
 }
 
-body { 
-    font-family: 'Segoe UI', sans-serif; 
-    background-color: var(--body-bg) !important; 
-    color: var(--text-color) !important;
-    transition: background-color 0.3s ease, color 0.3s ease;
+* {
+    box-sizing: border-box;
 }
 
-/* === NAVBAR === */
-.navbar { background: var(--nav-bg) !important; padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); transition: 0.3s; }
-body.dark-mode .navbar { box-shadow: 0 2px 10px rgba(0,0,0,0.5); }
-.navbar-brand { color: var(--nav-text) !important; font-weight: 700; display: flex; align-items: center; gap: 10px; }
-.navbar-brand span.text-muted { color: #888 !important; }
-body.dark-mode .navbar-brand span.text-muted { color: #aaa !important; }
-.nav-link { color: var(--nav-text) !important; font-size: 1rem; padding: 8px 15px !important; }
-.nav-link:hover { color: var(--primary) !important; }
-.dropdown-menu { background-color: var(--nav-bg); border: 1px solid var(--card-border); }
-.dropdown-item { color: var(--nav-text) !important; }
-.dropdown-item:hover { background-color: var(--primary) !important; color: white !important; }
-
-/* Theme Toggle Button */
-.theme-toggle-btn { 
-    background: transparent; border: 1px solid var(--card-border); color: var(--nav-text); 
-    border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; 
-    justify-content: center; cursor: pointer; transition: 0.3s; margin-left: 15px; 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
 }
-.theme-toggle-btn:hover { background: var(--primary); color: white; }
 
-/* === PAGE HEADER === */
-.page-header { background: var(--primary); color: white; padding: 50px 20px; text-align: center; margin-bottom: 40px; }
-.page-header h1 { font-weight: 700; }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    background: var(--body-bg);
+    color: var(--text-color);
+    transition: 0.3s;
+}
 
-/* === PROFILE CARDS === */
-.profile-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); padding: 40px; margin-bottom: 40px; transition: 0.3s; }
-.profile-img { width: 100%; max-width: 300px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); display: block; margin: 0 auto; }
-.profile-name { color: var(--primary); font-weight: 700; margin-top: 20px; }
-.profile-title { color: #666; font-size: 1.1rem; margin-bottom: 20px; }
-body.dark-mode .profile-title { color: #aaa; }
-.profile-text { font-size: 1.1rem; line-height: 1.9; color: var(--text-color); text-align: justify; transition: 0.3s; }
-.quote-icon { color: #e3f2fd; font-size: 3rem; margin-bottom: 15px; }
-body.dark-mode .quote-icon { color: #334155; }
+/* ==============================
+   HEADER
+================================ */
 
-footer { background: #0A1929; color: white; padding: 30px 20px; text-align: center; margin-top: 50px; }
-</style>
-</head>
-<body>
+.top-header {
+    background: var(--nav-bg);
+    padding: 12px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
 
-<nav class="navbar navbar-expand-lg">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">
-      <img src="https://i.ibb.co/HfBDmCbn/quest-logo.jpg" alt="QUEST Logo" style="height: 45px; background: white; border-radius: 50%; padding: 2px;">
-      <div>
-        <!-- Yahan Naam Change Kiya Gaya Hai -->
-        <span style="display: block; line-height: 1.2;">Cyber Security Department</span>
-        <span style="font-size: 0.7rem;" class="text-muted">QUEST Nawabshah</span>
-      </div>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto align-items-center">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">About</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="chairman.html">Chairman & Dean</a></li>
-            <li><a class="dropdown-item" href="department.html">Department</a></li>
-            <li><a class="dropdown-item" href="labs.html">Laboratories</a></li>
-          </ul>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Programs</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="programs.html">Undergraduate (BS)</a></li>
-            <li><a class="dropdown-item" href="curriculum.html">Curriculum</a></li>
-            <li><a class="dropdown-item" href="timetable.html">Timetable</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="people.html">People</a></li>
-        <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
-        
-        <!-- Theme Toggle Button (Sahi Jagah) -->
-        <li class="nav-item">
-          <button class="theme-toggle-btn" onclick="toggleTheme()" title="Toggle Dark/Light Mode">
-            <i class="fas fa-moon" id="theme-icon"></i>
-          </button>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
 
-<div class="page-header">
-  <div class="container">
-    <h1>Leadership & Vision</h1>
-    <p class="mb-0">Messages from the Dean and Chairman</p>
-  </div>
-</div>
+.university-logo {
+    width: 53px;
+    height: 53px;
+    object-fit: contain;
+    background: white;
+    border-radius: 50%;
+    padding: 3px;
+}
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-10 mx-auto">
-      <div class="profile-card">
-        <div class="row align-items-center">
-          <div class="col-md-4 text-center mb-4 mb-md-0">
-            <img src="https://i.ibb.co/ynYfQ7Nv/518b1f4d14336643edb42d5e8a82ed9adb.jpg" alt="Dean" class="profile-img">
-          </div>
-          <div class="col-md-8">
-            <i class="fas fa-quote-left quote-icon"></i>
-            <p class="profile-text">
-              The Department of Cyber Security at QUEST is committed to providing quality education and research opportunities in modern digital defense technologies. We aim to equip our students with the knowledge, technical skills, and professional ethics required to excel in academia, industry, and research. We encourage our students to pursue innovation and critical thinking as they contribute to the advancement of cybersecurity and society.
-            </p>
-            <h4 class="profile-name mt-4">Prof. Dr. Muhammad Ibrahim Channa</h4>
-            <p class="profile-title">Dean, Faculty of Science</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+.brand-name {
+    color: var(--nav-text);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+}
 
-  <div class="row mt-4">
-    <div class="col-lg-10 mx-auto">
-      <div class="profile-card">
-        <div class="row align-items-center">
-          <div class="col-md-4 text-center mb-4 mb-md-0">
-            <img src="https://i.ibb.co/0ypSvtRv/2298f54a1aaca2040c79c6c6c23a3cd59a1.jpg" alt="Chairman" class="profile-img">
-          </div>
-          <div class="col-md-8">
-            <i class="fas fa-quote-left quote-icon"></i>
-            <p class="profile-text">
-              Welcome to the Cyber Security Department. In today's digital age, cybersecurity is not just a necessity but a foundation for national security and economic stability. Our department is dedicated to producing highly skilled professionals who can protect Pakistan's digital infrastructure from modern cyber threats. We provide a state-of-the-art learning environment, expert faculty, and practical training to ensure our graduates are industry-ready. I invite young minds to join us in this noble mission of building a safer digital future.
-            </p>
-            <h4 class="profile-name mt-4">Dr. Adnan Ahmed</h4>
-            <p class="profile-title">Chairman, Cyber Security Department</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+.brand-subtitle {
+    color: #888;
+    font-size: 12px;
+    font-weight: 500;
+}
 
-<footer>
-  <p>© 2026 Cyber Security Department, QUEST. All Rights Reserved.</p>
-  <p style="font-size: 0.85rem; color: #aaa; margin-bottom: 0;">Developed by Mariam Khan</p>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-// === THEME TOGGLE SCRIPT ===
-function toggleTheme() {
-    const body = document.body;
-    const icon = document.getElementById('theme-icon');
-    
-    body.classList.toggle('dark-mode');
-    
-    if (body.classList.contains('dark-mode')) {
-        localStorage.setItem('theme', 'dark');
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-    } else {
-        localStorage.setItem('theme', 'light');
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
+.menu-toggle {
+    width: 43px;
+    height: 43px;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--nav-text);
+    font-size: 19px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu-toggle:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.theme-toggle-btn {
+    background: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--nav-text);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.theme-toggle-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* ==============================
+   SIDEBAR
+================================ */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -290px;
+    width: 280px;
+    height: 100vh;
+    background: var(--nav-bg);
+    z-index: 3000;
+    padding: 22px 18px;
+    overflow-y: auto;
+    box-shadow: 5px 0 25px rgba(0,0,0,0.15);
+    transition: left 0.3s ease;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.sidebar-heading {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--primary);
+}
+
+.sidebar-close {
+    border: none;
+    background: transparent;
+    color: var(--nav-text);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 14px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    color: var(--nav-text);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.sidebar-link i {
+    width: 22px;
+    text-align: center;
+    color: var(--primary);
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+    background: rgba(11,114,185,0.12);
+    color: var(--primary);
+}
+
+.sidebar-link.dropdown-toggle::after {
+    margin-left: auto;
+}
+
+.submenu {
+    padding-left: 30px;
+    margin-bottom: 8px;
+}
+
+.submenu a {
+    display: block;
+    padding: 10px 12px;
+    color: var(--nav-text);
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 7px;
+}
+
+.submenu a:hover {
+    background: rgba(11,114,185,0.12);
+    color: var(--primary);
+}
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 2500;
+    display: none;
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
+/* ==============================
+   PAGE HEADER
+================================ */
+
+.page-header {
+    background:
+        linear-gradient(rgba(10,25,41,0.75), rgba(10,25,41,0.75)),
+        url('https://i.ibb.co/b5BmC0BQ/telecom-building.jpg')
+        center/cover no-repeat;
+
+    color: white;
+    text-align: center;
+    padding: 75px 20px;
+}
+
+.page-header .header-label {
+    display: inline-block;
+    padding: 8px 18px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 30px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.page-header h1 {
+    font-size: clamp(30px, 5vw, 46px);
+    font-weight: 750;
+    margin-bottom: 12px;
+}
+
+.page-header p {
+    font-size: 17px;
+    margin: 0;
+    color: white;
+    opacity: 0.9;
+}
+
+/* ==============================
+   SECTION
+================================ */
+
+.section {
+    padding: 65px 0;
+}
+
+.section-label {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 31px;
+    font-weight: 750;
+    color: var(--text-color);
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-color);
+    opacity: 0.75;
+    margin-bottom: 42px;
+}
+
+/* ==============================
+   PROFILE CARDS
+================================ */
+
+.profile-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+    padding: 38px;
+    margin-bottom: 30px;
+    transition: 0.3s;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(11,114,185,0.12);
+}
+
+.profile-img {
+    width: 100%;
+    max-width: 280px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 13px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.15);
+    display: block;
+    margin: 0 auto;
+}
+
+.quote-icon {
+    color: rgba(11,114,185,0.18);
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.profile-text {
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--text-color);
+    text-align: justify;
+}
+
+.profile-name {
+    color: var(--primary);
+    font-weight: 750;
+    margin-top: 22px;
+    margin-bottom: 7px;
+}
+
+.profile-title {
+    color: #777;
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+body.dark-mode .profile-title {
+    color: #aaa;
+}
+
+.profile-divider {
+    width: 65px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+/* ==============================
+   FOOTER
+================================ */
+
+footer {
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 30px 15px;
+}
+
+footer p {
+    margin: 5px;
+}
+
+.footer-developer {
+    font-size: 13px;
+    color: #aaa;
+    margin-top: 10px;
+}
+
+/* ==============================
+   RESPONSIVE
+================================ */
+
+@media(max-width:768px) {
+
+    .top-header {
+        padding: 10px 12px;
+    }
+
+    .brand-name {
+        font-size: 14px;
+    }
+
+    .brand-subtitle {
+        font-size: 11px;
+    }
+
+    .university-logo {
+        width: 43px;
+        height: 43px;
+    }
+
+    .header-left {
+        gap: 9px;
+    }
+
+    .page-header {
+        padding: 55px 15px;
+    }
+
+    .page-header p {
+        font-size: 15px;
+    }
+
+    .section {
+        padding: 45px 0;
+    }
+
+    .section-title {
+        font-size: 25px;
+    }
+
+    .profile-card {
+        padding: 22px;
+    }
+
+    .profile-img {
+        max-width: 230px;
+        height: 260px;
+        margin-bottom: 25px;
+    }
+
+    .profile-text {
+        font-size: 15px;
     }
 }
 
+</style>
+</head>
+
+<body>
+
+<!-- ==============================
+     HEADER
+================================ -->
+
+<header class="top-header">
+
+    <div class="header-left">
+
+        <button class="menu-toggle"
+                onclick="toggleSidebar()"
+                aria-label="Open navigation menu">
+
+            <i class="fas fa-bars"></i>
+
+        </button>
+
+        <img
+        src="https://i.ibb.co/HfBDmCbn/quest-logo.jpg"
+        alt="QUEST University Logo"
+        class="university-logo">
+
+        <div>
+
+            <div class="brand-name">
+                Cyber Security Department
+            </div>
+
+            <div class="brand-subtitle">
+                QUEST Nawabshah
+            </div>
+
+        </div>
+
+    </div>
+
+    <button class="theme-toggle-btn"
+            onclick="toggleTheme()"
+            title="Change Theme">
+
+        <i class="fas fa-moon" id="theme-icon"></i>
+
+    </button>
+
+</header>
+
+
+<!-- ==============================
+     SIDEBAR
+================================ -->
+
+<div class="sidebar-overlay"
+     id="sidebarOverlay"
+     onclick="closeSidebar()">
+</div>
+
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-header">
+
+        <div class="sidebar-heading">
+            <i class="fas fa-shield-halved me-2"></i>
+            Navigation
+        </div>
+
+        <button class="sidebar-close"
+                onclick="closeSidebar()">
+
+            <i class="fas fa-times"></i>
+
+        </button>
+
+    </div>
+
+    <a href="index.html" class="sidebar-link"
+       onclick="closeSidebar()">
+
+        <i class="fas fa-home"></i>
+        Home
+
+    </a>
+
+    <a class="sidebar-link dropdown-toggle active"
+       data-bs-toggle="collapse"
+       href="#aboutMenu">
+
+        <i class="fas fa-university"></i>
+        About
+
+    </a>
+
+    <div class="collapse show submenu" id="aboutMenu">
+
+        <a href="chairman.html">
+            <i class="fas fa-user-tie me-2"></i>
+            Chairman & Dean
+        </a>
+
+        <a href="department.html">
+            <i class="fas fa-building me-2"></i>
+            Department
+        </a>
+
+        <a href="labs.html">
+            <i class="fas fa-microscope me-2"></i>
+            Laboratories
+        </a>
+
+    </div>
+
+    <a class="sidebar-link dropdown-toggle"
+       data-bs-toggle="collapse"
+       href="#programMenu">
+
+        <i class="fas fa-graduation-cap"></i>
+        Programs
+
+    </a>
+
+    <div class="collapse submenu" id="programMenu">
+
+        <a href="programs.html">
+            🎓 Undergraduate (BS)
+        </a>
+
+        <a href="curriculum.html">
+            📚 Curriculum
+        </a>
+
+        <a href="timetable.html">
+            🗓️ Timetable
+        </a>
+
+    </div>
+
+    <a href="people.html"
+       class="sidebar-link"
+       onclick="closeSidebar()">
+
+        <i class="fas fa-users"></i>
+        People
+
+    </a>
+
+    <a href="research.html"
+       class="sidebar-link"
+       onclick="closeSidebar()">
+
+        <i class="fas fa-flask"></i>
+        Research
+
+    </a>
+
+    <a href="events.html"
+       class="sidebar-link"
+       onclick="closeSidebar()">
+
+        <i class="fas fa-calendar-alt"></i>
+        Events
+
+    </a>
+
+    <a href="index.html#contact"
+       class="sidebar-link"
+       onclick="closeSidebar()">
+
+        <i class="fas fa-envelope"></i>
+        Contact
+
+    </a>
+
+</aside>
+
+
+<!-- ==============================
+     PAGE HEADER
+================================ -->
+
+<section class="page-header">
+
+    <div class="container">
+
+        <span class="header-label">
+            QUEST NAWABSHAH
+        </span>
+
+        <h1>
+            Leadership & Vision
+        </h1>
+
+        <p>
+            Messages from the Dean and Chairman
+            of the Cyber Security Department
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     DEAN AND CHAIRMAN
+================================ -->
+
+<section class="section">
+
+    <div class="container">
+
+        <span class="section-label">
+            Department Leadership
+        </span>
+
+        <h2 class="section-title">
+            Meet Our Leadership
+        </h2>
+
+        <p class="section-subtitle">
+            Guidance, experience and vision for
+            academic excellence and a secure digital future.
+        </p>
+
+
+        <!-- DEAN PROFILE -->
+
+        <div class="row">
+            <div class="col-lg-11 mx-auto">
+
+                <div class="profile-card">
+
+                    <div class="row align-items-center g-4">
+
+                        <div class="col-md-4 text-center">
+
+                            <img
+                            src="https://i.ibb.co/ynYfQ7Nv/518b1f4d14336643edb42d5e8a82ed9adb.jpg"
+                            alt="Dean Prof. Dr. Muhammad Ibrahim Channa"
+                            class="profile-img">
+
+                        </div>
+
+                        <div class="col-md-8">
+
+                            <i class="fas fa-quote-left quote-icon"></i>
+
+                            <p class="profile-text">
+                                The Department of Cyber Security at QUEST
+                                is committed to providing quality education
+                                and research opportunities in modern digital
+                                defense technologies. We aim to equip our
+                                students with the knowledge, technical skills,
+                                and professional ethics required to excel in
+                                academia, industry, and research. We encourage
+                                our students to pursue innovation and critical
+                                thinking as they contribute to the advancement
+                                of cybersecurity and society.
+                            </p>
+
+                            <div class="profile-divider"></div>
+
+                            <h4 class="profile-name">
+                                Prof. Dr. Muhammad Ibrahim Channa
+                            </h4>
+
+                            <p class="profile-title">
+                                Dean, Faculty of Science
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- CHAIRMAN PROFILE -->
+
+        <div class="row">
+
+            <div class="col-lg-11 mx-auto">
+
+                <div class="profile-card">
+
+                    <div class="row align-items-center g-4">
+
+                        <div class="col-md-4 text-center">
+
+                            <img
+                            src="https://i.ibb.co/0ypSvtRv/2298f54a1aaca2040c79c6c6c23a3cd59a1.jpg"
+                            alt="Chairman Dr. Adnan Ahmed"
+                            class="profile-img">
+
+                        </div>
+
+                        <div class="col-md-8">
+
+                            <i class="fas fa-quote-left quote-icon"></i>
+
+                            <p class="profile-text">
+                                Welcome to the Cyber Security Department.
+                                In today's digital age, cybersecurity is not
+                                just a necessity but a foundation for national
+                                security and economic stability. Our department
+                                is dedicated to producing highly skilled
+                                professionals who can protect Pakistan's
+                                digital infrastructure from modern cyber
+                                threats. We provide a state-of-the-art learning
+                                environment, expert faculty, and practical
+                                training to ensure our graduates are
+                                industry-ready. I invite young minds to join
+                                us in this noble mission of building a safer
+                                digital future.
+                            </p>
+
+                            <div class="profile-divider"></div>
+
+                            <h4 class="profile-name">
+                                Dr. Adnan Ahmed
+                            </h4>
+
+                            <p class="profile-title">
+                                Chairman, Cyber Security Department
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     FOOTER
+================================ -->
+
+<footer>
+
+    <p>
+        © 2026 Cyber Security Department, QUEST.
+        All Rights Reserved.
+    </p>
+
+    <p class="footer-developer">
+        Developed by Mariam Khan
+    </p>
+
+</footer>
+
+
+<!-- ==============================
+     SCRIPTS
+================================ -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+// THEME TOGGLE
+
+function toggleTheme() {
+
+    const body = document.body;
+    const icon = document.getElementById('theme-icon');
+
+    body.classList.toggle('dark-mode');
+
+    if (body.classList.contains('dark-mode')) {
+
+        localStorage.setItem('theme', 'dark');
+
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+
+    } else {
+
+        localStorage.setItem('theme', 'light');
+
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+
+    }
+
+}
+
+
+// LOAD SAVED THEME
+
 document.addEventListener("DOMContentLoaded", () => {
+
     const savedTheme = localStorage.getItem('theme');
     const icon = document.getElementById('theme-icon');
-    
+
     if (savedTheme === 'dark') {
+
         document.body.classList.add('dark-mode');
-        if(icon) {
+
+        if (icon) {
             icon.classList.remove('fa-moon');
             icon.classList.add('fa-sun');
         }
+
     }
+
 });
+
+
+// SIDEBAR OPEN
+
+function toggleSidebar() {
+
+    document.getElementById('sidebar').classList.add('active');
+
+    document.getElementById('sidebarOverlay').classList.add('active');
+
+}
+
+
+// SIDEBAR CLOSE
+
+function closeSidebar() {
+
+    document.getElementById('sidebar').classList.remove('active');
+
+    document.getElementById('sidebarOverlay').classList.remove('active');
+
+}
+
 </script>
+
 </body>
 </html>

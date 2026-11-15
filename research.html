@@ -4,342 +4,463 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Research & Innovation - Cyber Security Department | QUEST</title>
+
+<title>Research & Innovation | Cyber Security Department - QUEST</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+/* ==============================
+   1. ORIGINAL INDEX THEME COLORS
+================================ */
+
 :root {
     --primary: #0B72B9;
-    --primary-dark: #07568d;
-    --bg: #f4f7fb;
-    --card: #ffffff;
-    --text: #172b4d;
-    --muted: #64748b;
-    --border: #e2e8f0;
-    --sidebar: #ffffff;
-    --shadow: 0 8px 25px rgba(15, 40, 75, 0.07);
+    --nav-bg: #ffffff;
+    --nav-text: #333333;
+    --body-bg: #f4f7fb;
+    --text-color: #333333;
+    --card-bg: #ffffff;
+    --card-border: rgba(0,0,0,0.08);
+    --hero-overlay: rgba(10,25,41,0.60);
+    --footer-bg: #0A1929;
+    --footer-text: #ffffff;
 }
 
 body.dark-mode {
-    --bg: #0f172a;
-    --card: #1e293b;
-    --text: #f1f5f9;
-    --muted: #aab8ca;
-    --border: #334155;
-    --sidebar: #111c30;
-    --shadow: 0 8px 25px rgba(0,0,0,0.2);
+    --nav-bg: #0f172a;
+    --nav-text: #e2e8f0;
+    --body-bg: #0f172a;
+    --text-color: #e2e8f0;
+    --card-bg: #1e293b;
+    --card-border: rgba(255,255,255,0.1);
+    --hero-overlay: rgba(10,25,41,0.85);
+    --footer-bg: #020617;
+    --footer-text: #e2e8f0;
 }
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
 body {
-    font-family: 'Poppins', sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    background: var(--body-bg);
+    color: var(--text-color);
     transition: 0.3s;
 }
 
-a {
-    text-decoration: none;
-}
 
-/* HEADER */
+/* ==============================
+   2. TOP HEADER - SAME AS INDEX
+================================ */
+
 .top-header {
-    height: 75px;
-    background: var(--card);
-    border-bottom: 1px solid var(--border);
+    background: var(--nav-bg);
+    padding: 12px 22px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 25px;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 2000;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    transition: 0.3s;
 }
 
-.brand {
+.header-left {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
 }
 
-.brand img {
-    width: 48px;
-    height: 48px;
+.university-logo {
+    width: 53px;
+    height: 53px;
     object-fit: contain;
+    background: white;
+    border-radius: 50%;
+    padding: 3px;
 }
 
-.brand h5 {
-    font-size: 15px;
+.brand-name {
+    color: var(--nav-text);
+    font-size: 18px;
     font-weight: 700;
-    color: var(--text);
-    margin: 0;
+    line-height: 1.3;
 }
 
-.brand small {
-    color: var(--muted);
-    font-size: 11px;
+.brand-subtitle {
+    color: #888;
+    font-size: 12px;
+    font-weight: 500;
 }
 
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.header-btn {
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    background: var(--card);
-    color: var(--text);
+.menu-toggle {
+    width: 43px;
+    height: 43px;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--nav-text);
+    font-size: 19px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-.header-btn:hover {
+.menu-toggle:hover {
     background: var(--primary);
     color: white;
 }
 
-/* SIDEBAR */
+.theme-toggle-btn {
+    background: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--nav-text);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+}
+
+.theme-toggle-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+
+/* ==============================
+   3. LEFT SIDEBAR - SAME AS INDEX
+================================ */
+
 .sidebar {
     position: fixed;
-    top: 75px;
-    left: 0;
-    width: 255px;
-    height: calc(100vh - 75px);
-    background: var(--sidebar);
-    border-right: 1px solid var(--border);
-    padding: 20px 14px;
+    top: 0;
+    left: -290px;
+    width: 280px;
+    height: 100vh;
+    background: var(--nav-bg);
+    z-index: 3000;
+    padding: 22px 18px;
     overflow-y: auto;
-    z-index: 999;
-    transition: 0.3s;
+    box-shadow: 5px 0 25px rgba(0,0,0,0.15);
+    transition: left 0.3s ease;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--card-border);
 }
 
 .sidebar-heading {
-    color: var(--muted);
-    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 1.5px;
-    padding: 12px;
-    margin-top: 8px;
+    font-size: 18px;
+    color: var(--primary);
 }
 
-.sidebar a {
+.sidebar-close {
+    border: none;
+    background: transparent;
+    color: var(--nav-text);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.sidebar-link {
     display: flex;
     align-items: center;
     gap: 13px;
-    padding: 12px 14px;
-    color: var(--muted);
-    font-size: 13px;
-    font-weight: 500;
-    border-radius: 9px;
-    margin-bottom: 4px;
+    padding: 13px 14px;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    color: var(--nav-text);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
     transition: 0.25s;
 }
 
-.sidebar a i {
-    width: 18px;
+.sidebar-link i {
+    width: 22px;
     text-align: center;
+    color: var(--primary);
 }
 
-.sidebar a:hover,
-.sidebar a.active {
+.sidebar-link:hover,
+.sidebar-link.active {
     background: rgba(11,114,185,0.12);
     color: var(--primary);
 }
 
-.sidebar a.active {
-    font-weight: 700;
+.sidebar-link.dropdown-toggle::after {
+    margin-left: auto;
 }
 
-/* MAIN CONTENT */
-.main-content {
-    margin-left: 255px;
-    padding: 30px;
-    min-height: calc(100vh - 75px);
-    transition: 0.3s;
+.submenu {
+    padding-left: 30px;
+    margin-bottom: 8px;
 }
+
+.submenu a {
+    display: block;
+    padding: 10px 12px;
+    color: var(--nav-text);
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 7px;
+}
+
+.submenu a:hover {
+    background: rgba(11,114,185,0.12);
+    color: var(--primary);
+}
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    z-index: 2500;
+    display: none;
+}
+
+.sidebar-overlay.active {
+    display: block;
+}
+
+
+/* ==============================
+   4. MAIN CONTENT
+================================ */
+
+.main-content {
+    width: 100%;
+    padding: 35px 0;
+    min-height: 70vh;
+}
+
+
+/* ==============================
+   5. HERO SECTION
+================================ */
 
 .hero {
-    position: relative;
-    overflow: hidden;
-    border-radius: 20px;
-    padding: 65px 45px;
     background:
         linear-gradient(110deg, rgba(3,27,55,0.96), rgba(7,86,141,0.88)),
-        url('https://i.ibb.co/b5BmC0BQ/telecom-building.jpg') center/cover;
+        url('https://i.ibb.co/b5BmC0BQ/telecom-building.jpg')
+        center/cover no-repeat;
+
+    min-height: 390px;
+    display: flex;
+    align-items: center;
+    padding: 60px 45px;
+    border-radius: 15px;
+    margin-bottom: 55px;
     color: white;
-    margin-bottom: 35px;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 720px;
+    max-width: 800px;
 }
 
 .hero-label {
     display: inline-block;
     background: rgba(255,255,255,0.15);
-    border: 1px solid rgba(255,255,255,0.25);
-    padding: 7px 14px;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 8px 17px;
     border-radius: 30px;
-    font-size: 11px;
-    margin-bottom: 18px;
-    letter-spacing: 1px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    margin-bottom: 22px;
 }
 
 .hero h1 {
-    font-size: clamp(28px, 4vw, 43px);
-    font-weight: 800;
-    margin-bottom: 15px;
+    font-size: clamp(30px,5vw,48px);
+    font-weight: 750;
+    line-height: 1.2;
+    margin-bottom: 18px;
+    color: white;
 }
 
 .hero p {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.9;
     color: #e0edfa;
-    max-width: 680px;
+    max-width: 720px;
 }
 
 .hero-btn {
     display: inline-block;
-    margin-top: 15px;
-    padding: 12px 23px;
-    border-radius: 9px;
     background: white;
-    color: var(--primary-dark);
-    font-size: 13px;
+    color: #07568d;
+    padding: 12px 24px;
+    border-radius: 7px;
+    text-decoration: none;
+    margin-top: 15px;
     font-weight: 700;
     transition: 0.3s;
 }
 
 .hero-btn:hover {
     background: #dceeff;
+    color: #07568d;
     transform: translateY(-3px);
-    color: var(--primary-dark);
 }
 
-/* SECTION */
+
+/* ==============================
+   6. GENERAL SECTIONS
+================================ */
+
 .section {
-    margin-bottom: 38px;
+    padding: 15px 0 45px;
+    margin-bottom: 20px;
 }
 
 .section-heading {
-    margin-bottom: 22px;
+    margin-bottom: 28px;
 }
 
 .section-heading small {
     color: var(--primary);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
 }
 
 .section-heading h2 {
-    font-size: 25px;
-    font-weight: 700;
-    margin: 7px 0;
-    color: var(--text);
+    font-size: 28px;
+    font-weight: 750;
+    margin: 9px 0 12px;
+    color: var(--text-color);
 }
 
 .section-heading p {
-    color: var(--muted);
-    font-size: 13px;
-    max-width: 750px;
-    line-height: 1.8;
+    color: var(--text-color);
+    opacity: 0.75;
+    font-size: 14px;
+    max-width: 800px;
+    line-height: 1.9;
 }
 
-/* RESEARCH CARDS */
+
+/* ==============================
+   7. RESEARCH CARDS
+================================ */
+
 .research-card {
     height: 100%;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 15px;
-    padding: 24px;
-    box-shadow: var(--shadow);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 27px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.05);
     transition: 0.3s;
 }
 
 .research-card:hover {
     transform: translateY(-6px);
     border-color: var(--primary);
+    box-shadow: 0 12px 25px rgba(11,114,185,0.15);
 }
 
 .icon-box {
-    width: 52px;
-    height: 52px;
-    border-radius: 13px;
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 21px;
+    font-size: 23px;
     color: var(--primary);
     background: rgba(11,114,185,0.12);
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 .research-card h5 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
-    margin-bottom: 10px;
-    color: var(--text);
+    margin-bottom: 12px;
+    color: var(--primary);
 }
 
 .research-card p {
-    font-size: 12px;
-    color: var(--muted);
+    font-size: 14px;
+    color: var(--text-color);
+    opacity: 0.85;
     line-height: 1.8;
     margin: 0;
 }
 
-/* INFO PANELS */
+
+/* ==============================
+   8. INFORMATION PANELS
+================================ */
+
 .info-panel {
     height: 100%;
-    padding: 27px;
-    border: 1px solid var(--border);
-    border-radius: 15px;
-    background: var(--card);
-    box-shadow: var(--shadow);
+    padding: 28px;
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    background: var(--card-bg);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.info-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(11,114,185,0.12);
 }
 
 .info-panel h4 {
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 700;
-    margin: 15px 0 10px;
-    color: var(--text);
+    margin: 17px 0 12px;
+    color: var(--primary);
 }
 
 .info-panel p {
-    color: var(--muted);
-    font-size: 12px;
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 14px;
     line-height: 1.9;
+}
+
+.info-icon {
+    font-size: 30px;
+    color: var(--primary);
 }
 
 .coming-soon {
     display: inline-block;
-    padding: 6px 12px;
+    padding: 7px 13px;
     border-radius: 20px;
     background: rgba(245,158,11,0.13);
     color: #d97706;
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.5px;
 }
 
-.info-icon {
-    font-size: 28px;
-    color: var(--primary);
-}
+
+/* ==============================
+   9. OPPORTUNITY LIST
+================================ */
 
 .opportunity-list {
     list-style: none;
@@ -348,10 +469,11 @@ a {
 }
 
 .opportunity-list li {
-    padding: 11px 0;
-    border-bottom: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 12px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--card-border);
+    color: var(--text-color);
+    opacity: 0.85;
+    font-size: 14px;
 }
 
 .opportunity-list li:last-child {
@@ -363,195 +485,408 @@ a {
     margin-right: 10px;
 }
 
-/* CTA */
+
+/* ==============================
+   10. CALL TO ACTION
+================================ */
+
 .cta {
     background: linear-gradient(110deg, #07568d, #0B72B9);
-    padding: 35px;
-    border-radius: 17px;
+    padding: 40px;
+    border-radius: 14px;
     color: white;
-    margin-bottom: 35px;
+    margin: 25px 0 55px;
 }
 
 .cta h3 {
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 25px;
+    font-weight: 750;
+    color: white;
 }
 
 .cta p {
     color: #e0edfa;
-    font-size: 12px;
-    line-height: 1.8;
-    margin: 10px 0 18px;
+    font-size: 14px;
+    line-height: 1.9;
+    margin: 12px 0 18px;
+    max-width: 800px;
 }
 
 .cta a {
     display: inline-block;
     background: white;
     color: #07568d;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 12px;
+    padding: 12px 22px;
+    border-radius: 7px;
+    font-size: 14px;
     font-weight: 700;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
-/* FOOTER */
+.cta a:hover {
+    background: #dceeff;
+    transform: translateY(-3px);
+}
+
+
+/* ==============================
+   11. FOOTER - SAME AS INDEX
+================================ */
+
 footer {
-    background: var(--card);
-    border-top: 1px solid var(--border);
-    padding: 22px;
+    background: var(--footer-bg);
+    color: var(--footer-text);
     text-align: center;
-    color: var(--muted);
-    font-size: 11px;
+    padding: 30px 15px;
 }
 
-footer strong {
-    color: var(--primary);
+footer p {
+    margin: 5px;
 }
 
-/* MOBILE */
-@media(max-width: 900px) {
-    .sidebar {
-        left: -260px;
-    }
-
-    .sidebar.show {
-        left: 0;
-        box-shadow: 10px 0 30px rgba(0,0,0,0.15);
-    }
-
-    .main-content {
-        margin-left: 0;
-        padding: 20px;
-    }
-
-    .hero {
-        padding: 45px 25px;
-    }
+footer .developer {
+    font-size: 0.85rem;
+    color: #aab8ca;
+    margin-top: 10px;
 }
 
-@media(max-width: 576px) {
+footer .developer strong {
+    color: white;
+}
+
+
+/* ==============================
+   12. DARK MODE FIXES
+================================ */
+
+body.dark-mode .research-card p,
+body.dark-mode .info-panel p,
+body.dark-mode .opportunity-list li {
+    color: #e2e8f0;
+}
+
+body.dark-mode .submenu a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+body.dark-mode .coming-soon {
+    color: #fbbf24;
+}
+
+
+/* ==============================
+   13. MOBILE RESPONSIVE
+================================ */
+
+@media(max-width:768px) {
+
     .top-header {
-        padding: 0 14px;
+        padding: 10px 12px;
     }
 
-    .brand h5 {
-        font-size: 12px;
+    .brand-name {
+        font-size: 14px;
     }
 
-    .brand small {
-        font-size: 9px;
+    .brand-subtitle {
+        font-size: 11px;
     }
 
-    .brand img {
-        width: 40px;
-        height: 40px;
+    .university-logo {
+        width: 43px;
+        height: 43px;
     }
 
-    .main-content {
-        padding: 15px;
+    .header-left {
+        gap: 9px;
     }
 
     .hero {
-        padding: 35px 22px;
+        min-height: 350px;
+        padding: 40px 23px;
+        margin-bottom: 40px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .section {
+        padding: 10px 0 30px;
     }
 
     .section-heading h2 {
+        font-size: 24px;
+    }
+
+    .theme-toggle-btn {
+        width: 37px;
+        height: 37px;
+    }
+
+    .cta {
+        padding: 27px 22px;
+    }
+
+    .cta h3 {
         font-size: 21px;
     }
 }
+
+@media(max-width:480px) {
+
+    .brand-name {
+        font-size: 12px;
+    }
+
+    .brand-subtitle {
+        font-size: 10px;
+    }
+
+    .hero h1 {
+        font-size: 29px;
+    }
+
+    .hero-label {
+        font-size: 10px;
+    }
+
+    .research-card,
+    .info-panel {
+        padding: 22px;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
+
+<!-- ==============================
+     HEADER - SAME AS INDEX
+================================ -->
+
 <header class="top-header">
-    <div class="brand">
-        <img src="https://i.ibb.co/HfBDmCbn/quest-logo.jpg" alt="QUEST Logo">
+
+    <div class="header-left">
+
+        <button class="menu-toggle"
+                onclick="toggleSidebar()"
+                aria-label="Open navigation menu">
+
+            <i class="fas fa-bars"></i>
+
+        </button>
+
+        <img
+        src="https://i.ibb.co/HfBDmCbn/quest-logo.jpg"
+        alt="QUEST University Logo"
+        class="university-logo">
+
         <div>
-            <h5>Cyber Security Department</h5>
-            <small>QUEST Nawabshah</small>
+
+            <div class="brand-name">
+                Cyber Security Department
+            </div>
+
+            <div class="brand-subtitle">
+                QUEST Nawabshah
+            </div>
+
         </div>
+
     </div>
 
-    <div class="header-actions">
-        <button class="header-btn" id="themeToggle" title="Change Theme">
-            <i class="fas fa-moon"></i>
-        </button>
-        <button class="header-btn" id="menuToggle" title="Menu">
-            <i class="fas fa-bars"></i>
-        </button>
-    </div>
+    <button class="theme-toggle-btn"
+            onclick="toggleTheme()"
+            title="Change Theme">
+
+        <i class="fas fa-moon" id="theme-icon"></i>
+
+    </button>
+
 </header>
 
-<!-- SIDEBAR -->
+
+<!-- ==============================
+     SIDEBAR OVERLAY
+================================ -->
+
+<div class="sidebar-overlay"
+     id="sidebarOverlay"
+     onclick="closeSidebar()">
+</div>
+
+
+<!-- ==============================
+     LEFT SIDEBAR - SAME AS INDEX
+================================ -->
+
 <aside class="sidebar" id="sidebar">
 
-    <div class="sidebar-heading">MAIN MENU</div>
+    <div class="sidebar-header">
 
-    <a href="index.html">
-        <i class="fas fa-house"></i> Home
+        <div class="sidebar-heading">
+            <i class="fas fa-shield-halved me-2"></i>
+            Navigation
+        </div>
+
+        <button class="sidebar-close"
+                onclick="closeSidebar()">
+
+            <i class="fas fa-times"></i>
+
+        </button>
+
+    </div>
+
+
+    <!-- HOME -->
+
+    <a href="index.html" class="sidebar-link"
+       onclick="closeSidebar()">
+
+        <i class="fas fa-home"></i>
+        Home
+
     </a>
 
-    <a href="chairman.html">
-        <i class="fas fa-user-tie"></i> Chairman Message
+
+    <!-- ABOUT DROPDOWN -->
+
+    <a class="sidebar-link dropdown-toggle"
+       data-bs-toggle="collapse"
+       href="#aboutMenu">
+
+        <i class="fas fa-university"></i>
+        About
+
     </a>
 
-    <a href="department.html">
-        <i class="fas fa-building"></i> Department
+    <div class="collapse submenu" id="aboutMenu">
+
+        <a href="chairman.html">
+            <i class="fas fa-user-tie me-2"></i>
+            Chairman
+        </a>
+
+        <a href="department.html">
+            <i class="fas fa-building me-2"></i>
+            Department
+        </a>
+
+        <a href="labs.html">
+            <i class="fas fa-microscope me-2"></i>
+            Laboratories
+        </a>
+
+    </div>
+
+
+    <!-- PROGRAMS DROPDOWN -->
+
+    <a class="sidebar-link dropdown-toggle"
+       data-bs-toggle="collapse"
+       href="#programMenu">
+
+        <i class="fas fa-graduation-cap"></i>
+        Programs
+
     </a>
 
-    <a href="labs.html">
-        <i class="fas fa-flask"></i> Laboratories
+    <div class="collapse submenu" id="programMenu">
+
+        <a href="programs.html">
+            🎓 Undergraduate (BS)
+        </a>
+
+        <a href="curriculum.html">
+            📚 Curriculum
+        </a>
+
+        <a href="timetable.html">
+            🗓️ Timetable
+        </a>
+
+    </div>
+
+
+    <!-- PEOPLE -->
+
+    <a href="people.html"
+       class="sidebar-link"
+       onclick="closeSidebar()">
+
+        <i class="fas fa-users"></i>
+        People
+
     </a>
 
-    <div class="sidebar-heading">ACADEMICS</div>
 
-    <a href="programs.html">
-        <i class="fas fa-graduation-cap"></i> Programs
+    <!-- RESEARCH -->
+
+    <a href="research.html"
+       class="sidebar-link active"
+       onclick="closeSidebar()">
+
+        <i class="fas fa-flask"></i>
+        Research
+
     </a>
 
-    <a href="curriculum.html">
-        <i class="fas fa-book-open"></i> Curriculum
+
+    <!-- EVENTS -->
+
+    <a href="events.html"
+       class="sidebar-link"
+       onclick="closeSidebar()">
+
+        <i class="fas fa-calendar-alt"></i>
+        Events
+
     </a>
 
-    <a href="timetable.html">
-        <i class="fas fa-calendar-alt"></i> Timetable
-    </a>
 
-    <a href="people.html">
-        <i class="fas fa-users"></i> Faculty & People
-    </a>
+    <!-- CONTACT -->
 
-    <div class="sidebar-heading">DEPARTMENT ACTIVITIES</div>
+    <a href="index.html#contact"
+       class="sidebar-link"
+       onclick="closeSidebar()">
 
-    <a href="research.html" class="active">
-        <i class="fas fa-microscope"></i> Research
-    </a>
+        <i class="fas fa-envelope"></i>
+        Contact
 
-    <a href="news.html">
-        <i class="fas fa-newspaper"></i> News & Events
-    </a>
-
-    <div class="sidebar-heading">EXPLORE</div>
-
-    <a href="index.html#contact">
-        <i class="fas fa-envelope"></i> Contact
     </a>
 
 </aside>
 
-<!-- MAIN CONTENT -->
+
+<!-- ==============================
+     MAIN CONTENT
+================================ -->
+
 <main class="main-content">
 
+<div class="container">
+
+
     <!-- HERO SECTION -->
+
     <section class="hero">
+
         <div class="hero-content">
+
             <span class="hero-label">
-                <i class="fas fa-shield-halved"></i> RESEARCH & INNOVATION
+                <i class="fas fa-shield-halved me-2"></i>
+                RESEARCH & INNOVATION
             </span>
 
-            <h1>Exploring the Future of Cyber Security</h1>
+            <h1>
+                Exploring the Future of Cyber Security
+            </h1>
 
             <p>
                 Discover important research areas, emerging technologies
@@ -561,17 +896,27 @@ footer strong {
             </p>
 
             <a href="#research-areas" class="hero-btn">
+
                 Explore Research Areas
                 <i class="fas fa-arrow-right ms-2"></i>
+
             </a>
+
         </div>
+
     </section>
 
+
     <!-- INTRODUCTION -->
+
     <section class="section">
+
         <div class="section-heading">
+
             <small>ABOUT OUR RESEARCH</small>
+
             <h2>Research & Innovation Hub</h2>
+
             <p>
                 Cybersecurity research plays an important role in understanding
                 digital threats and developing safer technologies. This section
@@ -579,297 +924,448 @@ footer strong {
                 space for future student projects, academic publications and
                 research-related activities.
             </p>
+
         </div>
 
+
         <div class="row g-4">
+
             <div class="col-lg-4 col-md-6">
+
                 <div class="research-card">
+
                     <div class="icon-box">
                         <i class="fas fa-lightbulb"></i>
                     </div>
+
                     <h5>Innovation</h5>
+
                     <p>
                         Exploring new ideas and creative approaches to
                         cybersecurity challenges and digital protection.
                     </p>
+
                 </div>
+
             </div>
 
+
             <div class="col-lg-4 col-md-6">
+
                 <div class="research-card">
+
                     <div class="icon-box">
                         <i class="fas fa-book-open"></i>
                     </div>
+
                     <h5>Academic Exploration</h5>
+
                     <p>
                         Learning about security concepts, technologies,
                         vulnerabilities and modern research developments.
                     </p>
+
                 </div>
+
             </div>
 
+
             <div class="col-lg-4 col-md-6">
+
                 <div class="research-card">
+
                     <div class="icon-box">
                         <i class="fas fa-users"></i>
                     </div>
+
                     <h5>Student Engagement</h5>
+
                     <p>
                         Encouraging students to explore research topics,
                         develop technical skills and work on practical ideas.
                     </p>
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
+
     <!-- RESEARCH AREAS -->
+
     <section class="section" id="research-areas">
 
         <div class="section-heading">
+
             <small>AREAS OF INTEREST</small>
+
             <h2>Cyber Security Research Areas</h2>
+
             <p>
                 Explore important fields and topics that are relevant
                 to modern cybersecurity education and research.
             </p>
+
         </div>
+
 
         <div class="row g-4">
 
+
             <div class="col-lg-4 col-md-6">
+
                 <div class="research-card">
+
                     <div class="icon-box">
                         <i class="fas fa-network-wired"></i>
                     </div>
+
                     <h5>Network Security</h5>
+
                     <p>
                         Understanding network protection, secure communication,
                         firewalls, intrusion detection and network threats.
                     </p>
+
                 </div>
+
             </div>
 
+
             <div class="col-lg-4 col-md-6">
+
                 <div class="research-card">
+
                     <div class="icon-box">
                         <i class="fas fa-brain"></i>
                     </div>
+
                     <h5>AI in Cybersecurity</h5>
+
                     <p>
                         Exploring how artificial intelligence and machine
                         learning can help identify suspicious activities
                         and security threats.
                     </p>
+
                 </div>
+
             </div>
 
+
             <div class="col-lg-4 col-md-6">
+
                 <div class="research-card">
+
                     <div class="icon-box">
                         <i class="fas fa-user-secret"></i>
                     </div>
+
                     <h5>Ethical Hacking</h5>
+
                     <p>
                         Learning authorized security testing, vulnerability
                         assessment and responsible security practices.
                     </p>
+
                 </div>
+
             </div>
 
+
             <div class="col-lg-4 col-md-6">
+
                 <div class="research-card">
+
                     <div class="icon-box">
                         <i class="fas fa-magnifying-glass-chart"></i>
                     </div>
+
                     <h5>Digital Forensics</h5>
+
                     <p>
                         Understanding digital evidence, incident investigation,
                         data recovery and forensic analysis techniques.
                     </p>
+
                 </div>
+
             </div>
 
+
             <div class="col-lg-4 col-md-6">
+
                 <div class="research-card">
+
                     <div class="icon-box">
                         <i class="fas fa-cloud"></i>
                     </div>
+
                     <h5>Cloud Security</h5>
+
                     <p>
                         Exploring cloud data protection, access control,
                         secure storage and cloud infrastructure security.
                     </p>
+
                 </div>
+
             </div>
 
+
             <div class="col-lg-4 col-md-6">
+
                 <div class="research-card">
+
                     <div class="icon-box">
                         <i class="fas fa-lock"></i>
                     </div>
+
                     <h5>Cryptography</h5>
+
                     <p>
                         Studying encryption, secure communication,
                         authentication and methods of protecting information.
                     </p>
+
                 </div>
+
             </div>
 
         </div>
+
     </section>
 
+
     <!-- STUDENT PROJECTS -->
+
     <section class="section">
 
         <div class="section-heading">
+
             <small>STUDENT INNOVATION</small>
+
             <h2>Student Research & Projects</h2>
+
             <p>
                 A dedicated space for showcasing cybersecurity projects,
                 technical experiments and student research contributions
                 as verified work becomes available.
             </p>
+
         </div>
+
 
         <div class="row g-4">
 
+
             <div class="col-lg-6">
+
                 <div class="info-panel">
+
                     <i class="fas fa-laptop-code info-icon"></i>
+
                     <h4>Student Projects Showcase</h4>
+
                     <p>
                         Future student projects may include security tools,
                         network monitoring applications, secure web systems,
                         awareness platforms and other cybersecurity solutions.
                     </p>
+
                     <span class="coming-soon">
-                        <i class="fas fa-clock me-1"></i> CONTENT COMING SOON
+                        <i class="fas fa-clock me-1"></i>
+                        CONTENT COMING SOON
                     </span>
+
                 </div>
+
             </div>
 
+
             <div class="col-lg-6">
+
                 <div class="info-panel">
+
                     <i class="fas fa-flask info-icon"></i>
+
                     <h4>Practical Research Activities</h4>
+
                     <p>
                         This section can later feature verified laboratory
                         experiments, research demonstrations, technical
                         investigations and academic project work.
                     </p>
+
                     <span class="coming-soon">
-                        <i class="fas fa-clock me-1"></i> CONTENT COMING SOON
+                        <i class="fas fa-clock me-1"></i>
+                        CONTENT COMING SOON
                     </span>
+
                 </div>
+
             </div>
 
         </div>
+
     </section>
 
+
     <!-- PUBLICATIONS -->
+
     <section class="section">
 
         <div class="section-heading">
+
             <small>ACADEMIC CONTRIBUTIONS</small>
+
             <h2>Research Publications</h2>
+
             <p>
                 A future collection of verified research papers,
                 academic articles and publications by faculty members
                 and students.
             </p>
+
         </div>
 
+
         <div class="info-panel text-center py-5">
+
             <i class="fas fa-file-lines info-icon"
                style="font-size:42px;"></i>
 
             <h4>Research Publications</h4>
 
             <p class="mx-auto" style="max-width:600px;">
+
                 Research papers and publications will be displayed here
                 when verified academic material becomes available.
                 This section is currently being prepared.
+
             </p>
 
             <span class="coming-soon">
-                <i class="fas fa-clock me-1"></i> PUBLICATIONS COMING SOON
+
+                <i class="fas fa-clock me-1"></i>
+                PUBLICATIONS COMING SOON
+
             </span>
+
         </div>
+
     </section>
 
+
     <!-- OPPORTUNITIES -->
+
     <section class="section">
 
         <div class="section-heading">
+
             <small>LEARN & GROW</small>
+
             <h2>Research & Learning Opportunities</h2>
+
             <p>
                 Students interested in cybersecurity can explore
                 different learning and development opportunities.
             </p>
+
         </div>
+
 
         <div class="row g-4">
 
+
             <div class="col-lg-6">
+
                 <div class="info-panel">
+
                     <i class="fas fa-graduation-cap info-icon"></i>
+
                     <h4>Academic Development</h4>
 
                     <ul class="opportunity-list">
+
                         <li>
                             <i class="fas fa-check-circle"></i>
                             Explore cybersecurity research topics
                         </li>
+
                         <li>
                             <i class="fas fa-check-circle"></i>
                             Develop technical and analytical skills
                         </li>
+
                         <li>
                             <i class="fas fa-check-circle"></i>
                             Learn about emerging security technologies
                         </li>
+
                         <li>
                             <i class="fas fa-check-circle"></i>
                             Prepare academic and technical projects
                         </li>
+
                     </ul>
+
                 </div>
+
             </div>
 
+
             <div class="col-lg-6">
+
                 <div class="info-panel">
+
                     <i class="fas fa-people-group info-icon"></i>
+
                     <h4>Professional Growth</h4>
 
                     <ul class="opportunity-list">
+
                         <li>
                             <i class="fas fa-check-circle"></i>
                             Explore cybersecurity competitions
                         </li>
+
                         <li>
                             <i class="fas fa-check-circle"></i>
                             Participate in relevant workshops
                         </li>
+
                         <li>
                             <i class="fas fa-check-circle"></i>
                             Explore internship opportunities
                         </li>
+
                         <li>
                             <i class="fas fa-check-circle"></i>
                             Connect with academic communities
                         </li>
+
                     </ul>
+
                 </div>
+
             </div>
 
         </div>
+
     </section>
 
+
     <!-- CALL TO ACTION -->
+
     <section class="cta">
-        <h3>Interested in Cyber Security Research?</h3>
+
+        <h3>
+            Interested in Cyber Security Research?
+        </h3>
 
         <p>
             Explore academic programs, department activities and
@@ -878,63 +1374,132 @@ footer strong {
         </p>
 
         <a href="programs.html">
+
             Explore Academic Programs
             <i class="fas fa-arrow-right ms-2"></i>
+
         </a>
+
     </section>
+
+
+</div>
 
 </main>
 
-<!-- FOOTER -->
+
+<!-- ==============================
+     FOOTER - SAME AS INDEX
+================================ -->
+
 <footer>
-    <p class="mb-1">
-        © 2026 Cyber Security Department, QUEST. All Rights Reserved.
+
+    <p>
+        © 2026 Cyber Security Department, QUEST.
+        All Rights Reserved.
     </p>
-    <p class="mb-0">
+
+    <p class="developer">
         Developed by <strong>Mariam Khan</strong>
     </p>
+
 </footer>
 
-<script>
-// DARK / LIGHT MODE
-const themeToggle = document.getElementById("themeToggle");
-const themeIcon = themeToggle.querySelector("i");
 
-if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
-    themeIcon.classList.replace("fa-moon", "fa-sun");
+<!-- ==============================
+     SCRIPTS
+================================ -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+
+// ==============================
+// DARK / LIGHT MODE
+// ==============================
+
+function toggleTheme() {
+
+    const body = document.body;
+    const icon = document.getElementById('theme-icon');
+
+    body.classList.toggle('dark-mode');
+
+    if (body.classList.contains('dark-mode')) {
+
+        localStorage.setItem('theme', 'dark');
+
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+
+    } else {
+
+        localStorage.setItem('theme', 'light');
+
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+
+    }
+
 }
 
-themeToggle.addEventListener("click", function() {
-    document.body.classList.toggle("dark-mode");
 
-    const isDark = document.body.classList.contains("dark-mode");
+// LOAD SAVED THEME
 
-    localStorage.setItem("theme", isDark ? "dark" : "light");
+document.addEventListener("DOMContentLoaded", () => {
 
-    if (isDark) {
-        themeIcon.classList.replace("fa-moon", "fa-sun");
-    } else {
-        themeIcon.classList.replace("fa-sun", "fa-moon");
-    }
-});
+    const savedTheme = localStorage.getItem('theme');
+    const icon = document.getElementById('theme-icon');
 
-// MOBILE SIDEBAR
-const menuToggle = document.getElementById("menuToggle");
-const sidebar = document.getElementById("sidebar");
+    if (savedTheme === 'dark') {
 
-menuToggle.addEventListener("click", function() {
-    sidebar.classList.toggle("show");
-});
+        document.body.classList.add('dark-mode');
 
-// CLOSE SIDEBAR AFTER CLICK ON MOBILE
-document.querySelectorAll(".sidebar a").forEach(function(link) {
-    link.addEventListener("click", function() {
-        if (window.innerWidth <= 900) {
-            sidebar.classList.remove("show");
+        if (icon) {
+
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+
         }
-    });
+
+    }
+
 });
+
+
+// ==============================
+// SIDEBAR FUNCTIONS
+// ==============================
+
+function toggleSidebar() {
+
+    document.getElementById('sidebar').classList.add('active');
+
+    document.getElementById('sidebarOverlay').classList.add('active');
+
+}
+
+
+function closeSidebar() {
+
+    document.getElementById('sidebar').classList.remove('active');
+
+    document.getElementById('sidebarOverlay').classList.remove('active');
+
+}
+
+
+// CLOSE SIDEBAR WITH ESCAPE KEY
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeSidebar();
+    }
+
+});
+
 </script>
 
 </body>
